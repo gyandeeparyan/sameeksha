@@ -32,7 +32,7 @@ export async function POST(request: Request){
             if(exsistingUserVerifiedByUsername){
                 return Response.json({
                     success:false,
-                    message:"User already exsistt with this email",
+                    message:"User already exsist with this email",
                 },{status:400})
             }
             else{
