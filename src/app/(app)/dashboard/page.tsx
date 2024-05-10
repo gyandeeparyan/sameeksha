@@ -21,7 +21,7 @@ function UserDashboard() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = useState(false);
-  S;
+  
   const { toast } = useToast();
 
   const handleDeleteMessage = (messageId: string) => {

@@ -38,11 +38,11 @@ function VerifyAccount() {
       });
 
       toast({
-        title: "Sucess",
+        title: "Success",
         description: response.data.message,
       });
 
-      router.replace("sign-in");
+      router.replace("/sign-in");
     } catch (error) {
       console.error("Error during sign-up:", error);
 
@@ -50,7 +50,7 @@ function VerifyAccount() {
 
       // Default error message
       let errorMessage = axiosError.response?.data.message;
-      ("An error occured. Please try again.");
+      ("Invalid OTP. Please try again.");
 
       toast({
         title: "Verification Failed",
