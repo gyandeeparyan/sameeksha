@@ -44,9 +44,7 @@ onMessageDelete(message._id)
   return (
     <div>
       <Card>
-        <CardHeader>
-          <CardTitle>Card Title</CardTitle>
-          <AlertDialog>
+      <AlertDialog>
             <AlertDialogTrigger>
               <Button variant='outline'>
                 <X className='w-5 h-5' />
@@ -57,7 +55,7 @@ onMessageDelete(message._id)
                 <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                 <AlertDialogDescription>
                   This action cannot be undone. This will permanently delete
-                  your account and remove your data from our servers.
+                  selected message from our servers.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
@@ -68,15 +66,16 @@ onMessageDelete(message._id)
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
+        <CardHeader>
+          
+        
 
-          <CardDescription>Card Description</CardDescription>
+          
         </CardHeader>
         <CardContent>
-          <p>Card Content</p>
+          <p>{message.content}</p>
         </CardContent>
-        <CardFooter>
-          <p>Card Footer</p>
-        </CardFooter>
+       
       </Card>
     </div>
   );
