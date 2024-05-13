@@ -32,10 +32,24 @@
       --input: 214.3 31.8% 91.4%;
       --ring: 222.2 84% 4.9%;
 
-      --radius: 0.5rem;
+      --main-color-light: 208, 7%, 46%;
+      --accent-color-light: 174, 42%, 51%;
+      --highlight-color-light: 42, 100%, 70%;
+      --text-color-light: 0, 0%, 20%;
+      --background-color-light: 210, 17%, 98%;
+      --button-color-light: 204, 51%, 78%;
     }
 
     .dark {
+    
+      --main-color-dark: 210, 8%, 10%;
+      --accent-color-dark: 174, 42%, 51%;
+      --highlight-color-dark: 42, 100%, 70%;
+      --text-color-dark:0, 0%, 80%;
+      --background-color-dark: 0, 0%, 12%;
+      --button-color-dark: 204, 51%, 78%;
+      
+      
       --background: 222.2 84% 4.9%;
       --foreground: 210 40% 98%;
 
