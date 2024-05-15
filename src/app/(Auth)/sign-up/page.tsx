@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDebounceCallback } from "usehooks-ts";
 import * as z from "zod";
-
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -103,13 +103,19 @@ export default function SignUpForm() {
   };
 
   return (
-    <div className='flex justify-center items-center min-h-screen bg-stone-700'>
-      <div className='w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md'>
+    <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
+     <div className="flex flex-row items-center justify-around  ">
+        <div className="bg-accentLight dark:bg-accentDark mx-5 mb-10 rounded-3xl mt-20 hidden md:block">
+<Image src={"https://illustrations.popsy.co/amber/working-vacation.svg"} alt="signup illustration" width={400} height={600}></Image>
+        </div>
+
+     <div className='flex justify-center min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
+      <div className='w-full mt-8 max-w-md p-8 space-y-8 bg-mainLight dark:bg-mainDark rounded-xl shadow-md text-textLight dark:text-textDark'>
         <div className='text-center'>
-          <h1 className='text-4xl font-extrabold tracking-tight lg:text-5xl mb-6'>
-            Join Sameeksha
+          <h1 className='text-4xl font-semibold tracking-tight lg:text-5xl mb-6'>
+            join sameeksha
           </h1>
-          <p className='mb-4'>Sign up to start your anonymous adventure</p>
+          <p className='mb-4'>sign up to start your anonymous adventure</p>
         </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
@@ -118,13 +124,14 @@ export default function SignUpForm() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel className="hidden">Username</FormLabel>
                   <Input
                     {...field}
                     onChange={(e) => {
                       field.onChange(e);
                       debounced(e.target.value);
                     }}
+                    placeholder='Username' className=" bg-mainLight dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark"
                   />
                   {isCheckingUsername && <Loader2 className='animate-spin' />}
                   {!isCheckingUsername && usernameMessage && (
@@ -146,14 +153,15 @@ export default function SignUpForm() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <Input {...field} name='email' />
-                  <p className='text-muted text-gray-400 text-sm'>
-                    We will send you a verification code
+                  <FormLabel className="hidden">Email</FormLabel>
+                  <Input {...field} name='email' placeholder='Email' className=" bg-mainLight dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark" />
+                  <p className='text-muted  text-sm'>
+                    we will send you a verification code
                   </p>
                   <FormMessage />
                 </FormItem>
               )}
+              
             />
 
             <FormField
@@ -161,17 +169,18 @@ export default function SignUpForm() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <Input type='password' {...field} name='password' />
+                  <FormLabel className="hidden">Password</FormLabel>
+                  <Input type='password' {...field} name='password'placeholder='Password' className=" bg-mainLight dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark" />
                   <FormMessage />
                 </FormItem>
               )}
+              
             />
-            <Button type='submit' className='w-full' disabled={isSubmitting}>
+            <Button type='submit' className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black' disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                  Please wait
+                  please wait
                 </>
               ) : (
                 "Sign Up"
@@ -189,5 +198,8 @@ export default function SignUpForm() {
         </div>
       </div>
     </div>
+      </div>
+      </div>
+   
   );
 }

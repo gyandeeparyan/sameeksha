@@ -1,5 +1,5 @@
 'use client'
-
+import Image from "next/image";
 import { useToast } from "@/components/ui/use-toast";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
@@ -61,10 +61,18 @@ function VerifyAccount() {
   };
 
   return (
-    <div className='flex justify-center items-center min-h-screen bg-gray-100'>
-      <div className='w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md'>
+
+    <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
+    <div className="flex flex-row items-center justify-around  ">
+       <div className="bg-accentLight dark:bg-accentDark mx-5 mb-10 rounded-3xl mt-20 hidden md:block">
+<Image src={"https://illustrations.popsy.co/amber/telephone-call.svg"} alt="verify code illustration" width={400} height={600}></Image>
+       </div>
+
+    
+    <div className='flex justify-center min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
+      <div className='w-full mt-8 max-w-md p-8 space-y-8 bg-mainLight dark:bg-mainDark rounded-xl shadow-md text-textLight dark:text-textDark'>
         <div className='text-center'>
-          <h1 className='text-4xl font-extrabold tracking-tight lg:text-5xl mb-6'>
+          <h1 className='text-4xl font-semibold tracking-tight lg:text-5xl mb-6'>
             Verify Your Account
           </h1>
           <p className='mb-4'>Enter the verification code sent to your email</p>
@@ -76,17 +84,19 @@ function VerifyAccount() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Verification Code</FormLabel>
-                  <Input {...field} />
+                  <FormLabel className="hidden">Verification Code</FormLabel>
+                  <Input {...field} placeholder='6 digit code sent on email' className=" bg-mainLight dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark" />
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type='submit'>Verify</Button>
+            <Button type='submit' className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>verify</Button>
           </form>
         </Form>
       </div>
     </div>
+    </div>
+      </div>
   );
 }
 

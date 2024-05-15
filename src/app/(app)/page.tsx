@@ -7,7 +7,8 @@ import { Mail } from "lucide-react"; // Assuming you have an icon for messages
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
 import messages from "@/messages.json";
-
+import { useSession, signOut } from "next-auth/react";
+import {User} from "next-auth"
 import {
   Carousel,
   CarouselContent,
@@ -17,21 +18,56 @@ import {
 } from "@/components/ui/carousel";
 
 export default function Home() {
+  const { data: session } = useSession();
+  const user: User = session?.user as User;
   return (
     <>
       {/* Main content */}
-      <main className='flex-grow flex flex-col items-center justify-center px-4 md:px-24 py-12 bg-backgroundLight dark:bg-backgroundDark  text-white'>
-        <section className='text-center mb-8 md:mb-12'>
-          <h1 className='text-3xl md:text-5xl font-bold'>
-            Dive into the World of Anonymous Feedback
+      <main className='flex-grow flex flex-col-reverse text-textLight dark:text-textDark md:flex-row items-center md:justify-between justify-center px-4 md:px-24 py-12 bg-backgroundLight dark:bg-backgroundDark '>
+        <section className='text-left mb-8 mx-6 '>
+          <h1 className='text-3xl md:text-7xl md:w-[650px]   font-semibold'>
+            dive into the world of anonymous conversations
           </h1>
-          <p className='mt-3 md:mt-4 text-base md:text-lg'>
-            Sameeksha - Where your identity remains a secret.
+          <p className='mt-3 md:mt-5 text-base md:text-lg md:w-[250px]'>
+            sameeksha - apne vichaar rakhein bina kisi sankoch ke!
           </p>
+          <div className='flex gap-2'>
+          <Link href="/sign-up">
+          <Button
+            type='button'
+            variant='secondary'
+            className='rounded-xl mt-6 md:mt-10 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+            start now
+          </Button>
+          </Link>
+                  {session ? (
+                    <Button
+                      type='button'
+                      variant='secondary'
+                      onClick={() => signOut()}
+                      className='rounded-xl mt-6 md:mt-10 md:hidden mx-4 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                      Logout
+                    </Button>
+                  ) : (
+                    <Link href='/sign-in'>
+                      <Button
+                        type='button'
+                        variant='secondary'
+                        className='rounded-xl mt-6 md:mt-10 md:hidden mx-4  bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                        Login
+                      </Button>
+                    </Link>
+                  )}
+                </div>
+          
         </section>
 
+        <div className="bg-accentLight dark:bg-accentDark mx-5 mb-10 rounded-3xl">
+<Image src={"https://illustrations.popsy.co/amber/remote-work.svg"} alt="a man messaging" width={400} height={600}></Image>
+        </div>
+
         {/* Carousel for Messages */}
-        <Carousel
+        {/* <Carousel
           plugins={[Autoplay({ delay: 2000 })]}
           className='w-full max-w-lg md:max-w-xl'>
           <CarouselContent>
@@ -54,7 +90,7 @@ export default function Home() {
               </CarouselItem>
             ))}
           </CarouselContent>
-        </Carousel>
+        </Carousel> */}
       </main>
 
       {/* Footer */}
