@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Sparkles } from 'lucide-react';
+import { Sparkles } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,7 +25,7 @@ import { ApiResponse } from "@/types/ApiResponse";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { messageSchema } from "@/schemas/messageSchema";
-import Image  from "next/image";
+import Image from "next/image";
 
 const separator = "||";
 
@@ -102,7 +102,7 @@ const SendMessage = () => {
   };
 
   return (
-    <div className='container flex flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
+    <div className='container flex flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-full  w-full'>
       {/* message section */}
       <div className='flex my-6 flex-col'>
         {/* message box */}
@@ -156,28 +156,27 @@ const SendMessage = () => {
         </div>
         {/*message suggestions box*/}
         {/*--------------------------------------------------------------------------------------------------------------------  */}
-       
 
         <div className='bg-mainLight h-[22%]  my-6 dark:bg-mainDark flex flex-col w-full md:w-[75%]  p-5 rounded-3xl'>
           <div className='space-y-4 overflow-y-scroll text-left'>
-{/* sugeestions button */}
+            {/* sugeestions button */}
 
             <div className='ml-5 '>
-                          {/* generate button */}
-                          
+              {/* generate button */}
+
               <Button
                 onClick={fetchSuggestedMessages}
                 className=' rounded-full bg-highlightLight flex items-center dark:bg-highlightDark hover:bg-accentLight dark:hover:bg-accentLight  px-4  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
                 disabled={isSuggestLoading}>
-                  <span className="mx-2"><Sparkles/></span>
+                <span className='mx-2'>
+                  <Sparkles />
+                </span>
                 ask sameeksha
               </Button>
-             
             </div>
-            
-            <div className="">
+
+            <div className=''>
               <Card className='rounded-xl h-[20%] bg-mainLight py-2  dark:bg-mainDark'>
-              
                 <CardContent className='flex flex-row -ml-5  flex-wrap'>
                   {error ? (
                     <p className='text-red-500'>{error.message}</p>
@@ -186,7 +185,7 @@ const SendMessage = () => {
                       <Button
                         key={index}
                         variant='outline'
-                        className='rounded-full px-3 bg-buttonLight m-2 dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark    text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+                        className='rounded-full truncate px-3 bg-buttonLight m-2 dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark    text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
                         onClick={() => handleMessageClick(message)}>
                         {message}
                       </Button>
@@ -197,42 +196,43 @@ const SendMessage = () => {
             </div>
           </div>
         </div>
-       
 
-        {/* <Separator className='my-6' />
-
-        <div className='text-center'>
-          <div className='mb-4'>Get Your Message Board</div>
-          <Link href={"/sign-up"}>
-            <Button className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black' >Create Your Account</Button>
-          </Link>
-        </div> */}
-      </div>
-
-
-       {/* illustration section */}
-       <div className='flex flex-col'>
-          {/* illustration */}
-          <div className='bg-accentLight dark:bg-accentDark  -ml-64 rounded-3xl my-6 hidden md:block'>
-            <Image
-              src={"https://illustrations.popsy.co/amber/communication.svg"}
-              alt='send message illustration'
-              width={400}
-              height={600}></Image>
-          </div>
-          {/* get your link section */}
-          <div className='flex items-center bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
-            <p className='mx-4 text-2xl '>get your public url</p>
-            <Link href="/sign-up">
+        <div className='flex md:hidden items-center bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[100%]   '>
+          <p className='mx-4 text-2xl '>get your public url</p>
+          <Link href='/sign-up'>
             <Button
               type='button'
               variant='secondary'
               className='rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
               here
             </Button>
-            </Link>
-          </div>
+          </Link>
         </div>
+      </div>
+
+      {/* illustration section */}
+      <div className='flex flex-col'>
+        {/* illustration */}
+        <div className='bg-accentLight dark:bg-accentDark  -ml-64 rounded-3xl my-6 hidden md:block'>
+          <Image
+            src={"https://illustrations.popsy.co/amber/communication.svg"}
+            alt='send message illustration'
+            width={400}
+            height={600}></Image>
+        </div>
+        {/* get your link section */}
+        <div className='md:flex items-center hidden bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
+          <p className='mx-4 text-2xl '>get your public url</p>
+          <Link href='/sign-up'>
+            <Button
+              type='button'
+              variant='secondary'
+              className='rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+              here
+            </Button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

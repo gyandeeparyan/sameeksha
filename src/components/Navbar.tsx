@@ -71,11 +71,11 @@ function Navbar() {
         <div className='hidden  lg:flex gap-2 '>
           {session ? (
             <Button
-              type='button'
               variant='secondary'
-              onClick={() => signOut()}
-              className='rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
-              Logout
+              className='rounded-xl bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+              type='button'
+              onClick={() => signOut()}>
+              logout
             </Button>
           ) : (
             <Link href='/sign-in'>
@@ -92,10 +92,7 @@ function Navbar() {
         </div>
         <div className='lg:hidden flex '>
           <div className='flex items-center '>
-            <Menu
-              onClick={toggleMenu}
-              className='h-6  w-6 cursor-pointer'
-            />
+            <Menu onClick={toggleMenu} className='h-6  w-6 cursor-pointer' />
           </div>
         </div>
         {isMenuOpen && (
@@ -145,7 +142,6 @@ function Navbar() {
                     <ModeToggle />
                   </nav>
                 </div>
-                
               </div>
             </div>
           </div>
