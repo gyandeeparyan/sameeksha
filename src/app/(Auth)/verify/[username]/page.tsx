@@ -63,14 +63,14 @@ function VerifyAccount() {
   return (
 
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
-    <div className="flex flex-row items-center justify-around  ">
-       <div className="bg-accentLight dark:bg-accentDark mx-5 mb-10 rounded-3xl mt-20 hidden md:block">
+    <div className="flex flex-col md:flex-row items-center justify-around  ">
+       <div className="bg-accentLight dark:bg-accentDark mx-5 md:mb-10 rounded-3xl mt-6 md:mt-20  md:block">
 <Image src={"https://illustrations.popsy.co/amber/telephone-call.svg"} alt="verify code illustration" width={400} height={600}></Image>
        </div>
 
     
-    <div className='flex justify-center min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
-      <div className='w-full mt-8 max-w-md p-8 space-y-8 bg-mainLight dark:bg-mainDark rounded-xl shadow-md text-textLight dark:text-textDark'>
+    <div className='flex justify-center h-[60%] md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
+      <div className='w-full mt-8 max-w-md p-8 md:space-y-8 bg-mainLight dark:bg-mainDark rounded-xl shadow-md text-textLight dark:text-textDark'>
         <div className='text-center'>
           <h1 className='text-4xl font-semibold tracking-tight lg:text-5xl mb-6'>
             Verify Your Account

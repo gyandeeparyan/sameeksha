@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import axios, { AxiosError } from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Sparkles } from 'lucide-react';
 import { useForm } from "react-hook-form";
 import { Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,7 @@ import { ApiResponse } from "@/types/ApiResponse";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { messageSchema } from "@/schemas/messageSchema";
+import Image  from "next/image";
 
 const separator = "||";
 
@@ -100,82 +102,137 @@ const SendMessage = () => {
   };
 
   return (
-    <div className='container mx-auto my-8 p-6 bg-white rounded max-w-4xl'>
-      <h1 className='text-4xl font-bold mb-6 text-center'>
-        Public Profile Link
-      </h1>
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
-          <FormField
-            control={form.control}
-            name='content'
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Send Anonymous Message to @{username}</FormLabel>
-                <FormControl>
-                  <Textarea
-                    placeholder='Write your anonymous message here'
-                    className='resize-none'
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <div className='flex justify-center'>
-            {isLoading ? (
-              <Button disabled>
-                <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                Please wait
-              </Button>
-            ) : (
-              <Button type='submit' disabled={isLoading || !messageContent}>
-                Send It
-              </Button>
-            )}
-          </div>
-        </form>
-      </Form>
-
-      <div className='space-y-4 my-8'>
-        <div className='space-y-2'>
-          <Button
-            onClick={fetchSuggestedMessages}
-            className='my-4'
-            disabled={isSuggestLoading}>
-            Suggest Messages
-          </Button>
-          <p>Click on any message below to select it.</p>
+    <div className='container flex flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
+      {/* message section */}
+      <div className='flex my-6 flex-col'>
+        {/* message box */}
+        <div className='bg-mainLight text-wrap dark:bg-mainDark w-full md:w-[75%] p-6  rounded-3xl '>
+          <h1 className='text-4xl font-bold mb-6 text-left'>
+            namaste from {username}.
+            <p className='mt-3 md:mt-5 text-base md:text-lg md:w-[250px]'>
+              unleash your thoughts, send anything anonymously!
+            </p>
+          </h1>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+              <FormField
+                control={form.control}
+                name='content'
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className='hidden'>
+                      Send Anonymous Message to @{username}
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder='aapke vichaar? yahan likhiye!'
+                        className='resize-none bg-mainLight rounded-xl dark:bg-mainDark border-t-textDark border-l-textDark border-r-textDark   border-b-textDark'
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <div className='flex justify-center'>
+                {isLoading ? (
+                  <Button
+                    disabled
+                    className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                    <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                    please wait
+                  </Button>
+                ) : (
+                  <Button
+                    type='submit'
+                    className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+                    disabled={isLoading || !messageContent}>
+                    send
+                  </Button>
+                )}
+              </div>
+            </form>
+          </Form>
         </div>
-        <Card>
-          <CardHeader>
-            <h3 className='text-xl font-semibold'>Messages</h3>
-          </CardHeader>
-          <CardContent className='flex flex-col space-y-4'>
-            {error ? (
-              <p className='text-red-500'>{error.message}</p>
-            ) : (
-              parseMessages(completion).map((message, index) => (
-                <Button
-                  key={index}
-                  variant='outline'
-                  className='mb-2'
-                  onClick={() => handleMessageClick(message)}>
-                  {message}
-                </Button>
-              ))
-            )}
-          </CardContent>
-        </Card>
+        {/*message suggestions box*/}
+        {/*--------------------------------------------------------------------------------------------------------------------  */}
+       
+
+        <div className='bg-mainLight h-[22%]  my-6 dark:bg-mainDark flex flex-col w-full md:w-[75%]  p-5 rounded-3xl'>
+          <div className='space-y-4 overflow-y-scroll text-left'>
+{/* sugeestions button */}
+
+            <div className='ml-5 '>
+                          {/* generate button */}
+                          
+              <Button
+                onClick={fetchSuggestedMessages}
+                className=' rounded-full bg-highlightLight flex items-center dark:bg-highlightDark hover:bg-accentLight dark:hover:bg-accentLight  px-4  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+                disabled={isSuggestLoading}>
+                  <span className="mx-2"><Sparkles/></span>
+                ask sameeksha
+              </Button>
+             
+            </div>
+            
+            <div className="">
+              <Card className='rounded-xl h-[20%] bg-mainLight py-2  dark:bg-mainDark'>
+              
+                <CardContent className='flex flex-row -ml-5  flex-wrap'>
+                  {error ? (
+                    <p className='text-red-500'>{error.message}</p>
+                  ) : (
+                    parseMessages(completion).map((message, index) => (
+                      <Button
+                        key={index}
+                        variant='outline'
+                        className='rounded-full px-3 bg-buttonLight m-2 dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark    text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+                        onClick={() => handleMessageClick(message)}>
+                        {message}
+                      </Button>
+                    ))
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+       
+
+        {/* <Separator className='my-6' />
+
+        <div className='text-center'>
+          <div className='mb-4'>Get Your Message Board</div>
+          <Link href={"/sign-up"}>
+            <Button className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black' >Create Your Account</Button>
+          </Link>
+        </div> */}
       </div>
-      <Separator className='my-6' />
-      <div className='text-center'>
-        <div className='mb-4'>Get Your Message Board</div>
-        <Link href={"/sign-up"}>
-          <Button>Create Your Account</Button>
-        </Link>
-      </div>
+
+
+       {/* illustration section */}
+       <div className='flex flex-col'>
+          {/* illustration */}
+          <div className='bg-accentLight dark:bg-accentDark  -ml-64 rounded-3xl my-6 hidden md:block'>
+            <Image
+              src={"https://illustrations.popsy.co/amber/communication.svg"}
+              alt='send message illustration'
+              width={400}
+              height={600}></Image>
+          </div>
+          {/* get your link section */}
+          <div className='flex items-center bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
+            <p className='mx-4 text-2xl '>get your public url</p>
+            <Link href="/sign-up">
+            <Button
+              type='button'
+              variant='secondary'
+              className='rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+              here
+            </Button>
+            </Link>
+          </div>
+        </div>
     </div>
   );
 };
