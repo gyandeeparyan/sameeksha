@@ -150,31 +150,32 @@ function UserDashboard() {
 
     // </div>
 
-    <div className='container flex flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
+    <div className='container flex  flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
       {/* message section */}
-      <div className='flex my-6 justify-center flex-col'>
+      <div className='flex  justify-center w-[50%] flex-col'>
         {/* messages list container */}
-        <div className='bg-mainLight overflow-y-scroll text-wrap dark:bg-mainDark w-full md:w-[100%] p-6  rounded-3xl '>
+        <div className='bg-indigo-100  overflow-y-scroll h-[50%] text-wrap text-textLight dark:text-textDark dark:bg-mainDark w-full md:w-full p-6  rounded-3xl '>
           <Button
-            className='mt-4 px-4 hover:bg-accentDark  py-2 rounded-full'
+            className='mt-4 px-2  bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark text-textLight dark:text-textDark  rounded-full'
             variant='outline'
             onClick={(e) => {
               e.preventDefault();
               fetchMessages(true);
             }}>
             {isLoading ? (
-              <Loader2 className='h-4 w-4 animate-spin hover:text-textLight ' />
+              <Loader2 className='w-5 text-textLight  h-5 animate-spin hover:text-textLight ' />
             ) : (
-              <RefreshCcw className='h-4 w-4 hover:text-textLight' />
+              <RefreshCcw className='w-5 text-textLight h-5 hover:text-textLight' />
             )}
           </Button>
           <h1 className='text-5xl font-semibold mb-6 text-left'>
             namaste  {username} .
           </h1>
-          <div className='mt-4 grid grid-cols-1'>
+          <div className='mt-4  flex flex-col w-[90%]'>
             {messages.length > 0 ? (
               messages.map((message, index) => (
                 <MessageCard
+                
                   key={message._id}
                   message={message}
                   onMessageDelete={handleDeleteMessage}
@@ -188,7 +189,7 @@ function UserDashboard() {
         {/*copy section/}
         {/*--------------------------------------------------------------------------------------------------------------------  */}
 
-        <div className='bg-mainLight   my-6 dark:bg-mainDark flex flex-col w-full md:w-[100%]  p-5 rounded-3xl'>
+        <div className='bg-amber-100  my-6 dark:bg-mainDark flex flex-col w-full md:w-[100%]  p-5 rounded-3xl'>
           <div className='space-y-4  text-left'>
             {/* copy section */}
             <h2 className='text-lg font-semibold mb-2'>
@@ -228,9 +229,9 @@ function UserDashboard() {
       
       </div>
         {/* illustration section */}
-        <div className='flex flex-col'>
+        <div className='flex ml-32 flex-col'>
           {/* illustration */}
-          <div className='bg-accentLight dark:bg-accentDark  -ml-64 rounded-3xl my-6 hidden md:block'>
+          <div className='bg-indigo-100 dark:bg-accentDark  -ml-64 rounded-3xl my-6 hidden md:block'>
             <Image
               src={"https://illustrations.popsy.co/amber/home-office.svg"}
               alt='send message illustration'
@@ -238,7 +239,7 @@ function UserDashboard() {
               height={600}></Image>
           </div>
           {/* setting / prefrence section */}
-          <div className='md:flex items-center hidden bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
+          <div className='md:flex bg-green-100 items-center hidden bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
             <Switch
               {...register("acceptMessages")}
               checked={acceptMessages}

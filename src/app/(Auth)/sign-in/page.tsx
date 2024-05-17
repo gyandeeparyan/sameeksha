@@ -63,11 +63,11 @@ export default function SignInForm() {
 
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
      <div className="flex flex-row items-center justify-around  ">
-        <div className="bg-accentLight dark:bg-accentDark mx-5 mb-10 rounded-3xl mt-20 hidden md:block">
+        <div className="bg-indigo-100 dark:bg-accentDark mx-5 mb-10 rounded-3xl mt-20 hidden md:block">
 <Image src={"https://illustrations.popsy.co/amber/home-from-work.svg"} alt="signin illustration" width={400} height={600}></Image>
         </div>
     <div className="flex justify-center min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark">
-      <div className="w-full mt-8 max-w-md p-8 space-y-8 bg-mainLight dark:bg-mainDark rounded-xl shadow-md text-textLight dark:text-textDark">
+      <div className="w-full mt-8 max-w-md p-8 space-y-8 bg-amber-100 dark:bg-mainDark rounded-xl shadow-md text-textLight dark:text-textDark">
         <div className="text-center">
           <h1 className="text-4xl font-semibold tracking-tight lg:text-5xl mb-6">
             welcome back to sameeksha
@@ -82,7 +82,7 @@ export default function SignInForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="hidden">Email/Username</FormLabel>
-                  <Input {...field}  placeholder='Username / Email' className=" bg-mainLight dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark" />
+                  <Input {...field}  placeholder='Username / Email' className=" bg-transparent dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark" />
                   <FormMessage />
                 </FormItem>
               )}
@@ -93,7 +93,7 @@ export default function SignInForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="hidden">Password</FormLabel>
-                  <Input type="password" {...field}  placeholder='Password' className=" bg-mainLight dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark"/>
+                  <Input type="password" {...field}  placeholder='Password' className=" bg-transparent dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark"/>
                   <FormMessage />
                 </FormItem>
               )}

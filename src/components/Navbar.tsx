@@ -13,19 +13,19 @@ function Navbar() {
 
   const menuItems = [
     {
-      name: "home",
+      name: "Home",
       href: "/",
     },
     {
-      name: "about",
+      name: "About",
       href: "/about",
     },
     {
-      name: "messages",
+      name: "Messages",
       href: "/dashboard",
     },
     {
-      name: "request features",
+      name: "Request features",
       href: "/request-feature",
     },
   ];

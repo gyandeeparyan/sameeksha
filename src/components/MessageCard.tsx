@@ -42,15 +42,15 @@ onMessageDelete(message._id)
 };
 
   return (
-    <div>
-      <Card>
-      <AlertDialog>
-            <AlertDialogTrigger>
-              <Button variant='outline'>
+    <div className=" rounded-xl overflow-y-scroll h-32  mb-7">
+      <Card className="rounded-xl ">
+      <AlertDialog  >
+            <AlertDialogTrigger >
+              <Button className="rounded-full px-2 mt-6 ml-6" variant='outline'>
                 <X className='w-5 h-5' />
               </Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
+            </AlertDialogTrigger >
+            <AlertDialogContent className="rounded-xl">
               <AlertDialogHeader>
                 <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
                 <AlertDialogDescription>
@@ -59,21 +59,16 @@ onMessageDelete(message._id)
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction onClick={handleDeleteConfirm}>
+                <AlertDialogCancel className="rounded-xl">Cancel</AlertDialogCancel>
+                <AlertDialogAction className="rounded-xl" onClick={handleDeleteConfirm}>
                   Continue
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
-        <CardHeader>
-          
-        
-
-          
-        </CardHeader>
-        <CardContent>
-          <p>{message.content}</p>
+      
+        <CardContent  >
+          <p className="mt-2 ml-2">{message.content}</p>
         </CardContent>
        
       </Card>

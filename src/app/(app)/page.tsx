@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       {/* Main content */}
-      <main className='flex-grow flex flex-col-reverse text-textLight dark:text-textDark md:flex-row items-center md:justify-between justify-center px-4 md:px-24 py-12 bg-backgroundLight dark:bg-backgroundDark '>
+      <main className='flex-grow  flex flex-col-reverse  dark:text-textDark md:flex-row items-center md:justify-between justify-center px-4 md:px-24 py-12 bg-backgroundLight dark:bg-backgroundDark '>
         <section className='text-left mb-8 mx-6 '>
           <h1 className='text-3xl md:text-7xl md:w-[650px]   font-semibold'>
             dive into the world of anonymous conversations
@@ -62,7 +62,7 @@ export default function Home() {
           
         </section>
 
-        <div className="bg-accentLight dark:bg-accentDark mx-5 mb-10 rounded-3xl">
+        <div className="bg-indigo-100 dark:bg-accentDark mx-5 mb-10 rounded-3xl">
 <Image src={"https://illustrations.popsy.co/amber/remote-work.svg"} alt="a man messaging" width={400} height={600}></Image>
         </div>
 
@@ -94,9 +94,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className='text-center p-4 md:p-3 bg-mainLight dark:bg-mainDark text-white'>
-        © {new Date().getFullYear()} Sameeksha. All rights reserved.
-      </footer>
+    
     </>
   );
 }

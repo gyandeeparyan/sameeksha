@@ -106,8 +106,8 @@ const SendMessage = () => {
       {/* message section */}
       <div className='flex my-6 flex-col'>
         {/* message box */}
-        <div className='bg-mainLight text-wrap dark:bg-mainDark w-full md:w-[75%] p-6  rounded-3xl '>
-          <h1 className='text-4xl font-bold mb-6 text-left'>
+        <div className='bg-amber-100 text-wrap dark:bg-mainDark w-full md:w-[75%] p-6  rounded-3xl '>
+          <h1 className='text-4xl  font-bold mb-6 text-left'>
             namaste from {username}.
             <p className='mt-3 md:mt-5 text-base md:text-lg md:w-[250px]'>
               unleash your thoughts, send anything anonymously!
@@ -126,7 +126,7 @@ const SendMessage = () => {
                     <FormControl>
                       <Textarea
                         placeholder='aapke vichaar? yahan likhiye!'
-                        className='resize-none bg-mainLight rounded-xl dark:bg-mainDark border-t-textDark border-l-textDark border-r-textDark   border-b-textDark'
+                        className='resize-none bg-mainLight border border-transparent rounded-xl dark:bg-mainDark border-t-textDark border-l-textDark border-r-textDark   border-b-textDark'
                         {...field}
                       />
                     </FormControl>
@@ -157,7 +157,7 @@ const SendMessage = () => {
         {/*message suggestions box*/}
         {/*--------------------------------------------------------------------------------------------------------------------  */}
 
-        <div className='bg-mainLight h-[22%]  my-6 dark:bg-mainDark flex flex-col w-full md:w-[75%]  p-5 rounded-3xl'>
+        <div className='bg-indigo-100 h-[22%]  my-6 dark:bg-mainDark flex flex-col w-full md:w-[75%]  p-5 rounded-3xl'>
           <div className='space-y-4 overflow-y-scroll text-left'>
             {/* sugeestions button */}
 
@@ -166,7 +166,7 @@ const SendMessage = () => {
 
               <Button
                 onClick={fetchSuggestedMessages}
-                className=' rounded-full bg-highlightLight flex items-center dark:bg-highlightDark hover:bg-accentLight dark:hover:bg-accentLight  px-4  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+                className=' rounded-full bg-highlightLight flex items-center dark:bg-highlightDark hover:bg-accentLight dark:hover:bg-accentLight  px-4  text-sm font-semibold text-textLight   shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
                 disabled={isSuggestLoading}>
                 <span className='mx-2'>
                   <Sparkles />
@@ -197,7 +197,7 @@ const SendMessage = () => {
           </div>
         </div>
 
-        <div className='flex md:hidden items-center bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[100%]   '>
+        <div className='flex md:hidden items-center bg-green-100 rounded-3xl p-6 dark:bg-mainDark w-[100%]   '>
           <p className='mx-4 text-2xl '>get your public url</p>
           <Link href='/sign-up'>
             <Button
@@ -213,7 +213,7 @@ const SendMessage = () => {
       {/* illustration section */}
       <div className='flex flex-col'>
         {/* illustration */}
-        <div className='bg-accentLight dark:bg-accentDark  -ml-64 rounded-3xl my-6 hidden md:block'>
+        <div className='bg-indigo-100 dark:bg-accentDark  -ml-64 rounded-3xl my-6 hidden md:block'>
           <Image
             src={"https://illustrations.popsy.co/amber/communication.svg"}
             alt='send message illustration'
@@ -221,7 +221,7 @@ const SendMessage = () => {
             height={600}></Image>
         </div>
         {/* get your link section */}
-        <div className='md:flex items-center hidden bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
+        <div className='md:flex  items-center hidden bg-green-100 rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
           <p className='mx-4 text-2xl '>get your public url</p>
           <Link href='/sign-up'>
             <Button
