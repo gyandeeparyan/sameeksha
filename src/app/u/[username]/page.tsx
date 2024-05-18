@@ -187,9 +187,9 @@ const SendMessage = () => {
 
             {isSuggestLoading?(<div className="flex flex-row gap-2 flex-wrap w-[100%]">
                 <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[200px] w-[100px] py-2 rounded-xl  " />
-                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 w-[200px] w-[100px] py-2 rounded-xl  " />
-                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 w-[200px] w-[100px] py-2 rounded-xl  " />
-                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 w-[200px] w-[100px] py-2 rounded-xl  " />
+                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[200px] w-[100px] py-2 rounded-xl  " />
+                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[200px] w-[100px] py-2 rounded-xl  " />
+                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[200px] w-[100px] py-2 rounded-xl  " />
               </div>):(<div className=''>
               <Card className='rounded-xl h-[30%] py-2  dark:bg-mainDark'>
                 <CardContent className='flex flex-row -ml-5  flex-wrap'>
