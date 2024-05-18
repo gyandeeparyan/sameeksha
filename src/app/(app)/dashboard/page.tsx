@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import React, { useCallback, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -10,7 +11,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios, { AxiosError } from "axios";
 import { Loader2, RefreshCcw } from "lucide-react";
 import { User } from "next-auth";
-import { useSession } from "next-auth/react";
+import { Skeleton } from "@/components/ui/skeleton"
+
+import { useSession,signOut } from "next-auth/react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { acceptMessageSchema } from "@/schemas/acceptMessageSchema";
@@ -22,7 +25,7 @@ function UserDashboard() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = useState(false);
-
+  const [isMounted, setIsMounted] = useState(false);
   const { toast } = useToast();
 
   const handleDeleteMessage = (messageId: string) => {
@@ -86,6 +89,10 @@ function UserDashboard() {
     [setIsLoading, setMessages, toast]
   );
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   // Fetch initial state from the server
   useEffect(() => {
     if (!session || !session.user) return;
@@ -128,12 +135,45 @@ function UserDashboard() {
   const profileUrl = `${baseUrl}/u/${username}`;
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(profileUrl);
-    toast({
-      title: "URL Copied!",
-      description: "Profile URL has been copied to clipboard.",
-    });
+    function copyTextToClipboard(text:string) {
+      if (!navigator.clipboard) {
+        // Fallback for browsers that don't support the Clipboard API
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+        return Promise.resolve();
+      }
+    
+      return navigator.clipboard.writeText(text);
+    }
+    
+    copyTextToClipboard(profileUrl)
+      .then(() => {
+        toast({
+          title: "URL Copied!",
+          description: "Profile URL has been copied to clipboard.",
+        });
+      })
+      .catch((error) => {
+  
+        console.error("Error copying URL to clipboard:", error);
+        toast({
+          title: "Error",
+          description: "Failed to copy URL to clipboard.",
+         
+        });
+      });
   };
+
+
+
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     // <div className='my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl'>
@@ -152,9 +192,10 @@ function UserDashboard() {
 
     <div className='container flex  flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
       {/* message section */}
-      <div className='flex  justify-center w-[50%] flex-col'>
+      <div className='flex  justify-center  md:w-[50%] flex-col'>
         {/* messages list container */}
         <div className='bg-indigo-100  overflow-y-scroll h-[50%] text-wrap text-textLight dark:text-textDark dark:bg-mainDark w-full md:w-full p-6  rounded-3xl '>
+          <div className="flex flex-row items-center ">
           <Button
             className='mt-4 px-2  bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark text-textLight dark:text-textDark  rounded-full'
             variant='outline'
@@ -163,15 +204,35 @@ function UserDashboard() {
               fetchMessages(true);
             }}>
             {isLoading ? (
-              <Loader2 className='w-5 text-textLight  h-5 animate-spin hover:text-textLight ' />
+              <Loader2 className='w-6  text-textLight  h-6  animate-spin hover:text-textLight ' />
             ) : (
-              <RefreshCcw className='w-5 text-textLight h-5 hover:text-textLight' />
+              <RefreshCcw className='w-6  text-textLight h-6  hover:text-textLight' />
             )}
           </Button>
+          {session ? (
+            <Button
+              variant='secondary'
+              className='rounded-xl mt-4  ml-3 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+              type='button'
+              onClick={() => signOut()}>
+              Logout
+            </Button>
+          ) : (
+            <Link href='/sign-in'>
+              <Button
+                type='button'
+                variant='secondary'
+                className='rounded-xl mt-4 ml-3 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                Login
+              </Button>
+            </Link>
+          )}
+          </div>
+         
           <h1 className='text-5xl font-semibold mb-6 text-left'>
             namaste  {username} .
           </h1>
-          <div className='mt-4  flex flex-col w-[90%]'>
+          <div className='mt-4  flex flex-col w-[90%] '>
             {messages.length > 0 ? (
               messages.map((message, index) => (
                 <MessageCard
@@ -182,14 +243,23 @@ function UserDashboard() {
                 />
               ))
             ) : (
-              <p>No messages to display.</p>
+              
+                isSwitchLoading?(  <div className="flex flex-col space-y-3">
+                <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-[250px]" />
+                  <Skeleton className="h-4 w-[200px]" />
+                </div>
+              </div>):( <p>No messages to display.</p>)
+              
+             
             )}
           </div>
         </div>
         {/*copy section/}
         {/*--------------------------------------------------------------------------------------------------------------------  */}
 
-        <div className='bg-amber-100  my-6 dark:bg-mainDark flex flex-col w-full md:w-[100%]  p-5 rounded-3xl'>
+        <div className='bg-orange-100  my-6 dark:bg-mainDark flex flex-col w-full md:w-[100%]  p-5 rounded-3xl'>
           <div className='space-y-4  text-left'>
             {/* copy section */}
             <h2 className='text-lg font-semibold mb-2'>
@@ -214,7 +284,7 @@ function UserDashboard() {
         </div>
 
         {/* mobile version of settings /prefrences */}
-        <div className='flex md:hidden items-center bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[100%]   '>
+        <div className='flex md:hidden items-center bg-cyan-100 rounded-3xl p-6 dark:bg-mainDark    '>
         <Switch
               {...register("acceptMessages")}
               checked={acceptMessages}
@@ -225,6 +295,8 @@ function UserDashboard() {
               Accept Messages: {acceptMessages ? "On" : "Off"}
             </span>
         </div>
+
+        
 
       
       </div>
@@ -239,7 +311,7 @@ function UserDashboard() {
               height={600}></Image>
           </div>
           {/* setting / prefrence section */}
-          <div className='md:flex bg-green-100 items-center hidden bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
+          <div className='md:flex bg-cyan-100 items-center hidden bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
             <Switch
               {...register("acceptMessages")}
               checked={acceptMessages}
