@@ -26,9 +26,9 @@ export default function Home() {
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) {
-    return null;
-  }
+  if (typeof window === 'undefined'){
+    return null
+}
   return (
     <>
       {/* Main content */}
@@ -72,7 +72,7 @@ export default function Home() {
         </section>
 
         <div className="bg-indigo-100 dark:bg-accentDark mx-5 mb-10 rounded-3xl">
-<Image src={"https://illustrations.popsy.co/amber/remote-work.svg"} alt="a man messaging" width={400} height={600}></Image>
+<Image src={"https://illustrations.popsy.co/amber/remote-work.svg"} alt="a man messaging" width={500} height={700}></Image>
         </div>
 
         {/* Carousel for Messages */}

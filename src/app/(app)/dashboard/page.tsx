@@ -169,11 +169,9 @@ function UserDashboard() {
   };
 
 
-
-
-  if (!isMounted) {
-    return null;
-  }
+if (typeof window === 'undefined'){
+    return null
+}
 
   return (
     // <div className='my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl'>
@@ -244,8 +242,8 @@ function UserDashboard() {
               ))
             ) : (
               
-                isSwitchLoading?(  <div className="flex flex-col space-y-3">
-                <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+                isSwitchLoading?(  <div className="flex flex-col w-[100%] space-y-3">
+                <Skeleton className=" bg-stone-300 dark:bg-zinc-800  rounded-xl overflow-y-scroll h-32" />
                 <div className="space-y-2">
                   <Skeleton className="h-4 w-[250px]" />
                   <Skeleton className="h-4 w-[200px]" />

@@ -41,6 +41,9 @@ toast({
 onMessageDelete(message._id)
 };
 
+if (typeof window === 'undefined'){
+  return null
+}
   return (
     <div className=" rounded-xl overflow-y-scroll h-32  mb-7">
       <Card className="rounded-xl ">
