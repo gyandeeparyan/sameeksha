@@ -1,9 +1,9 @@
-"use client";
-
+"use client"
+import {useState,useEffect} from "react"
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react"; // Assuming you have an icon for messages
+import { Mail } from "lucide-react"; 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Autoplay from "embla-carousel-autoplay";
 import messages from "@/messages.json";
@@ -20,6 +20,15 @@ import {
 export default function Home() {
   const { data: session } = useSession();
   const user: User = session?.user as User;
+  
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
   return (
     <>
       {/* Main content */}

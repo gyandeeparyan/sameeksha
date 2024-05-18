@@ -1,4 +1,5 @@
-'use client';
+"use client"
+
 import Image from "next/image";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -59,6 +60,9 @@ export default function SignInForm() {
     }
   };
 
+  if (typeof window === 'undefined'){
+    return null
+}
   return (
 
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
@@ -67,7 +71,7 @@ export default function SignInForm() {
 <Image src={"https://illustrations.popsy.co/amber/home-from-work.svg"} alt="signin illustration" width={400} height={600}></Image>
         </div>
     <div className="flex justify-center min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark">
-      <div className="w-full mt-8 max-w-md p-8 space-y-8 bg-amber-100 dark:bg-mainDark rounded-xl shadow-md text-textLight dark:text-textDark">
+      <div className="w-full mt-8 max-w-md p-8 space-y-8 bg-orange-100 dark:bg-mainDark rounded-2xl shadow-md text-textLight dark:text-textDark">
         <div className="text-center">
           <h1 className="text-4xl font-semibold tracking-tight lg:text-5xl mb-6">
             welcome back to sameeksha

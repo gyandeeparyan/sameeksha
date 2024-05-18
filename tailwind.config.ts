@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        junge:['var(--font-junge)'],
+      },
       colors: {
         mainDark: "hsl(var(--main-color-dark))",
         accentDark: "hsl(var(--accent-color-dark))",

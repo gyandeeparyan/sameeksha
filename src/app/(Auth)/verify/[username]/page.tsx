@@ -1,4 +1,5 @@
-'use client'
+"use client"
+
 import Image from "next/image";
 import { useToast } from "@/components/ui/use-toast";
 import { useParams, useRouter } from "next/navigation";
@@ -59,6 +60,10 @@ function VerifyAccount() {
       });
     }
   };
+
+  if (typeof window === 'undefined'){
+    return null
+}
 
   return (
 

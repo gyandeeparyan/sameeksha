@@ -3,9 +3,18 @@
   @tailwind utilities;
 
   @layer base {
+
+    @font-face {
+      font-family: "Junge", ;
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url(https://fonts.googleapis.com/css2?family=Junge&display=swap) format('ttf');
+    }
     /* width */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */

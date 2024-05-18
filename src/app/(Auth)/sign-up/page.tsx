@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import { ApiResponse } from "@/types/ApiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -101,16 +101,18 @@ export default function SignUpForm() {
       setIsSubmitting(false);
     }
   };
-
+  if (typeof window === 'undefined'){
+    return null
+}
   return (
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
      <div className="flex flex-row items-center justify-around  ">
-        <div className="bg-indigo-100 dark:bg-accentDark mx-5 mb-10 rounded-3xl mt-20 hidden md:block">
-<Image src={"https://illustrations.popsy.co/amber/working-vacation.svg"} alt="signup illustration" width={400} height={600}></Image>
+        <div className="bg-indigo-100 dark:bg-accentDark ml-48 mb-10 rounded-3xl mt-20 hidden md:block">
+<Image src={"https://illustrations.popsy.co/amber/working-vacation.svg"} alt="signup illustration" width={600} height={800}></Image>
         </div>
 
-     <div className='flex justify-center min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
-      <div className='w-full mt-8 max-w-md p-8 space-y-8 bg-amber-100 dark:bg-mainDark rounded-xl shadow-md  dark:text-textDark'>
+     <div className='flex justify-center w-full  min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
+      <div className='w-full mt-8 max-w-md p-8 space-y-8 bg-orange-100 dark:bg-mainDark rounded-2xl shadow-md  dark:text-textDark'>
         <div className='text-center'>
           <h1 className='text-4xl font-semibold tracking-tight lg:text-5xl mb-6'>
             join sameeksha
