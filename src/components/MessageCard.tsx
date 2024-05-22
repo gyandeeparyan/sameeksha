@@ -24,22 +24,44 @@ import { X } from "lucide-react";
 import { Message } from "@/model/User";
 import { useToast } from "./ui/use-toast";
 import { ApiResponse } from '../types/ApiResponse';
+import Cryptr from 'cryptr';
 import axios from "axios";
-
+import CryptoJS from 'crypto-js';
 type MessageCardProp = {
   message: Message;
   onMessageDelete: (messageId: string) => void;
 };
 
-const MessageCard= ({ message, onMessageDelete }: MessageCardProp) => {
+const   MessageCard= ({ message, onMessageDelete }: MessageCardProp) => {
+
   const { toast } = useToast();
   const handleDeleteConfirm = async() => {
     const response =await axios.delete<ApiResponse>(`/api/delete-message/${message._id}`)
+
 toast({
     title:response.data.message
 }) 
 onMessageDelete(message._id)
 };
+
+// const SECRET_KEY = String(process.env.CRYPTOJS_SECRET) ;
+// const cryptr = new Cryptr(SECRET_KEY);
+// const decryptContent = (encryptedContent) => {
+//   try {
+//     console.log(encryptedContent)
+//   const decryptedContent=cryptr.decrypt(encryptedContent)
+//   console.log(decryptedContent)
+//     if (!decryptedContent) throw new Error("Decryption failed");
+//     return decryptedContent;
+//   } catch (error) {
+//     console.error("Decryption error:", error);
+//     return "Decryption failed";
+//   }
+// };
+
+// let decryptedMessage = decryptContent(message.content);
+// console.log(decryptedMessage)
+
 
 if (typeof window === 'undefined'){
   return null
@@ -71,7 +93,7 @@ if (typeof window === 'undefined'){
           </AlertDialog>
       
         <CardContent  >
-          <p className="mt-2 ml-2">{message.content}</p>
+          <p className="mt-2 ml-2 text-wrap w-[90%]">{message.content}</p>
         </CardContent>
        
       </Card>

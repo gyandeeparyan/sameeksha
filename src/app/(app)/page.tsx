@@ -16,6 +16,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import dynamic from 'next/dynamic'
+ 
 
 export default function Home() {
   const { data: session } = useSession();
@@ -31,6 +33,7 @@ export default function Home() {
 }
   return (
     <>
+    
       {/* Main content */}
       <main className='flex-grow  flex flex-col-reverse  dark:text-textDark md:flex-row items-center md:justify-between justify-center px-4 md:px-24 py-12 bg-backgroundLight dark:bg-backgroundDark '>
         <section className='text-left mb-8 mx-6 '>
@@ -46,7 +49,7 @@ export default function Home() {
             type='button'
             variant='secondary'
             className='rounded-xl mt-6 md:mt-10 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
-            start now
+            Sign up
           </Button>
           </Link>
                   {session ? (

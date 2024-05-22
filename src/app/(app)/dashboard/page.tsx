@@ -28,6 +28,13 @@ function UserDashboard() {
   const [isMounted, setIsMounted] = useState(false);
   const { toast } = useToast();
 
+
+
+ 
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   const handleDeleteMessage = (messageId: string) => {
     setMessages(messages.filter((message) => message._id !== messageId));
   };
@@ -66,6 +73,7 @@ function UserDashboard() {
       setIsSwitchLoading(false);
       try {
         const response = await axios.get<ApiResponse>("/api/get-messages");
+        console.log(response.data.messages)
         setMessages(response.data.messages || []);
         if (refresh) {
           toast({
@@ -89,9 +97,8 @@ function UserDashboard() {
     [setIsLoading, setMessages, toast]
   );
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+ 
+
 
   // Fetch initial state from the server
   useEffect(() => {
@@ -174,23 +181,11 @@ if (typeof window === 'undefined'){
 }
 
   return (
-    // <div className='my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl'>
-    //   <h1 className='text-4xl font-bold mb-4'>User Dashboard</h1>
 
-    //   <div className='mb-4'>
-
-    //   </div>
-
-    //   <div className='mb-4'>
-
-    //   </div>
-    //   <Separator />
-
-    // </div>
 
     <div className='container flex  flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
       {/* message section */}
-      <div className='flex  justify-center  md:w-[50%] flex-col'>
+      <div className='flex  justify-center items-center md:w-[50%] flex-col'>
         {/* messages list container */}
         <div className='bg-indigo-100  overflow-y-scroll h-[50%] text-wrap text-textLight dark:text-textDark dark:bg-mainDark w-full md:w-full p-6  rounded-3xl '>
           <div className="flex flex-row items-center ">
@@ -232,21 +227,22 @@ if (typeof window === 'undefined'){
           </h1>
           <div className='mt-4  flex flex-col w-[90%] '>
             {messages.length > 0 ? (
-              messages.map((message, index) => (
-                <MessageCard
+              messages.map((message, index) => {
+             
+             return ( <MessageCard
                 
                   key={message._id}
                   message={message}
                   onMessageDelete={handleDeleteMessage}
                 />
-              ))
-            ) : (
+              )
+             })): (
               
                 isSwitchLoading?(  <div className="flex flex-col w-[100%] space-y-3">
                 <Skeleton className=" bg-stone-300 dark:bg-zinc-800  rounded-xl overflow-y-scroll h-32" />
                 <div className="space-y-2">
-                  <Skeleton className="h-4 w-[250px]" />
-                  <Skeleton className="h-4 w-[200px]" />
+                  <Skeleton className="h-4 w-[250px]  rounded-xl" />
+                  <Skeleton className="h-4 w-[200px] rounded-xl" />
                 </div>
               </div>):( <p>No messages to display.</p>)
               

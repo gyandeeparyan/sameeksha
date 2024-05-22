@@ -52,7 +52,7 @@ function Navbar() {
                     <span>
                       <Pen/>
                     </span>
-                    <span className='font-semibold text-3xl font-junge'>sameeksha</span>
+                    <span className='  text-3xl dark:text-accentDark  '>Sameeksha</span>
                   </div>
         <div className='hidden grow items-start lg:flex'>
           <ul className='ml-12 inline-flex space-x-8'>
@@ -60,7 +60,7 @@ function Navbar() {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className='text-sm font-semibold flex flex-row items-center gap-2 hover:text-gray-900 dark:hover:text-gray-200'>
+                  className='text-sm md:text-md  flex flex-row items-end gap-2 hover:text-gray-900 dark:hover:text-gray-200'>
                   {item.icon}  
                   {item.name}
                 </a>
@@ -104,7 +104,7 @@ function Navbar() {
                     <span>
                       <Pen/>
                     </span>
-                    <span className='font-semibold  text-3xl font-junge '>sameeksha</span>
+                    <span className='font-semibold  text-3xl font-junge '>Sameeksha</span>
                   </div>
                   <div className='-mr-2'>
                     <button

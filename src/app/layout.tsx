@@ -31,23 +31,26 @@ const junge = Dancing_Script({
   weight:'400',
   variable: '--font-junge',
 })
-export default async function RootLayout({ children }: RootLayoutProps) {
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" className={` ${roboto_mono.variable} ${junge.variable}`}>
+      <head />
       <AuthProvider>
-      <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-        <body className={inter.className}>
-          
-          {children}
-          <Toaster />
-        </body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+           
+          <body className={inter.className}>
+            {children}
+            <Toaster />
+          </body>
         </ThemeProvider>
       </AuthProvider>
     </html>
   );
 }
+
+export default RootLayout;

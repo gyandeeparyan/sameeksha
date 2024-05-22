@@ -108,16 +108,16 @@ export default function SignUpForm() {
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
      <div className="flex flex-row items-center justify-around  ">
         <div className="bg-indigo-100 dark:bg-accentDark ml-48 mb-10 rounded-3xl mt-20 hidden md:block">
-<Image src={"https://illustrations.popsy.co/amber/working-vacation.svg"} alt="signup illustration" width={600} height={800}></Image>
+<Image src={"https://illustrations.popsy.co/amber/working-vacation.svg"} alt="signup illustration" width={600} height={900}></Image>
         </div>
 
      <div className='flex justify-center w-full  min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
       <div className='w-full mt-8 max-w-md p-8 space-y-8 bg-orange-100 dark:bg-mainDark rounded-2xl shadow-md  dark:text-textDark'>
         <div className='text-center'>
           <h1 className='text-4xl font-semibold tracking-tight lg:text-5xl mb-6'>
-            join sameeksha
+            Join sameeksha
           </h1>
-          <p className='mb-4'>sign up to start your anonymous adventure</p>
+          <p className='mb-4'>Sign up to start your anonymous adventure</p>
         </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>

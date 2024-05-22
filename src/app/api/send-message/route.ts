@@ -1,11 +1,23 @@
 import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User";
 import { Message } from "@/model/User";
-
+import Cryptr from 'cryptr';
 export async function POST(request: Request) {
   await dbConnect();
+  // const SECRET_KEY = String(process.env.CRYPTOJS_SECRET) ;
+  // const cryptr = new Cryptr(SECRET_KEY);
+  // if (!SECRET_KEY) {
+  //   throw new Error("CRYPTOJS_SECRET environment variable is not set.");
+  // }
+  // function encryptContent(content) {
+  // const encrypted=cryptr.encrypt(content)
+  // console.log("Encrypted Content (Backend):", encrypted);
+  // return encrypted;
+  // }
 
   const { username, content } = await request.json();
+
+  console.log(content);
 
   try {
     const user = await UserModel.findOne({ username }).exec();
@@ -32,9 +44,13 @@ export async function POST(request: Request) {
         }
       );
     }
+    // const encryptedContent = encryptContent(content);
+    // console.log(encryptedContent)
+    // console.log(typeof(encryptedContent))
 
     const newMessage = { content, createdAt: new Date() };
-    user.messages.push(newMessage as Message);
+
+    user.messages.push(newMessage as unknown as Message);
     await user.save();
     return Response.json(
       {

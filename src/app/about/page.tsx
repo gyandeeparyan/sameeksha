@@ -1,10 +1,15 @@
+"use client"
 import React from 'react'
 
-export const page = () => {
+export default function About() {
+  if (typeof window === 'undefined'){
+    return null
+} 
   return (
     <div>
         {/* app introduction with carasual */}
         <div>
+          <h1>About</h1>
         </div>
         {/* how to use app */}
         <div>
