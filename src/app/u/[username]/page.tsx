@@ -96,7 +96,7 @@ const SendMessage = () => {
       setShowModal(true);
       toast({
         title: "Whoa, Slow Down!",
-        description: "You've reached the limit to keep it affordable. Message khud likho ab!",
+        description: "You have reached the limit to keep it affordable. Message khud likho ab!",
         variant: "destructive",
       });
 
@@ -213,7 +213,7 @@ const SendMessage = () => {
                       key={index}
                      
                      className='rounded-xl  text-left   max-w-[200px] px-3 py-3 bg-buttonLight m-2 dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark    text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
-                     You've reached the limit to keep it affordable. Message khud likho ab!
+                     You&apos;ve reached the limit to keep it affordable. Message khud likho ab!
                      </CardContent>):( <CardContent
                       key={index}
                        onClick={() => handleMessageClick(message)}
