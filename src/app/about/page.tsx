@@ -98,13 +98,13 @@ export default function About() {
           <AccordionItem value="item-1">
         <AccordionTrigger>How does anonymity work ?</AccordionTrigger>
         <AccordionContent>
-        Sameeksha ensures user anonymity by not requiring any personal information. Messages and feedback are shared without revealing the sender's identity, promoting honest and open communication.
+        Sameeksha ensures user anonymity by not requiring any personal information. Messages and feedback are shared without revealing the sender&apos;s identity, promoting honest and open communication.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">
         <AccordionTrigger>Who can use Sameeksha?</AccordionTrigger>
         <AccordionContent>
-        Sameeksha is ideal for teachers, mentors, students, mentees, and anyone looking to have open and honest conversations. It's perfect for educational environments, mentoring relationships, and casual conversations.
+        Sameeksha is ideal for teachers, mentors, students, mentees, and anyone looking to have open and honest conversations. It&apos;s perfect for educational environments, mentoring relationships, and casual conversations.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
@@ -143,7 +143,7 @@ export default function About() {
 
       {/* meet the developer */}
       <div>
-        <div className='bg-blue-100 dark:bg-mainDark my-4 rounded-3xl flex flex-col md:flex-row gap-5 justify-between'>
+        <div className='bg-blue-100 dark:bg-mainDark my-4 rounded-3xl flex flex-col md:flex-row gap-5 justify-between p-4'>
         <div className="flex max-w-2xl flex-col items-center  rounded-md  md:flex-row">
 
       <div className="h-full w-full md:h-[200px] md:w-[300px]">
@@ -156,7 +156,7 @@ export default function About() {
         />
       </div>
       <div>
-        <div className="p-4 m-4">
+        <div className=" m-4">
           <h1 className="inline-flex items-center text-lg font-semibold">
           Gyandeep Aryan <ArrowUpRight className="ml-2 h-4 w-4" />
           </h1>
@@ -183,7 +183,7 @@ export default function About() {
         
       </div>
     </div>
-<div className="m-4  flex  flex-col gap-5 p-4">
+<div className="m-4  flex  flex-col gap-5 ">
 <p className="ml-1 text-sm max-w-[50%]">Lets connect and share ideas! Send me a message  and I am here to listen.</p>
 <Link href="https://sameeksha.vercel.app/u/gyan" passHref  target="_blank" rel="noopener noreferrer">
 
