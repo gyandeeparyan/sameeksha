@@ -62,7 +62,8 @@ const SendMessage = () => {
   };
 
   const [isLoading, setIsLoading] = useState(false);
-
+  const [fetchCount,setFetchCount]=useState(0)
+  const [showModal,setShowModal]=useState(false)
   const onSubmit = async (data: z.infer<typeof messageSchema>) => {
     setIsLoading(true);
     try {
@@ -91,7 +92,18 @@ const SendMessage = () => {
   };
 
   const fetchSuggestedMessages = async () => {
+    if (fetchCount >= 3) {
+      setShowModal(true);
+      toast({
+        title: "Whoa, Slow Down!",
+        description: "You've reached the limit to keep it affordable. Message khud likho ab!",
+        variant: "destructive",
+      });
+
+      return;
+    }
     try {
+      setFetchCount(prev=>prev+1)
       setIsLoading(true)
       complete("");
       
@@ -118,7 +130,7 @@ const SendMessage = () => {
         {/* message box */}
         <div className='bg-orange-100 text-wrap dark:bg-mainDark w-full md:w-[75%] p-6  rounded-3xl '>
           <h1 className='text-4xl  font-bold mb-6 text-left'>
-            namaste from {username}.
+            Namaste from {username}.
             <p className='mt-3 md:mt-5 text-base md:text-lg md:w-[250px]'>
               unleash your thoughts, send anything anonymously!
             </p>
@@ -150,14 +162,14 @@ const SendMessage = () => {
                     disabled
                     className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
                     <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                    please wait
+                    Please wait
                   </Button>
                 ) : (
                   <Button
                     type='submit'
                     className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
                     disabled={isLoading || !messageContent}>
-                    send
+                    Send
                   </Button>
                 )}
               </div>
@@ -170,26 +182,26 @@ const SendMessage = () => {
         <div className='bg-indigo-100 h-[22%]  my-6 dark:bg-mainDark flex flex-col w-full md:w-[75%]  p-5 rounded-3xl'>
           <div className='space-y-4 overflow-y-scroll text-left'>
             {/* sugeestions button */}
-
-            <div className='ml-5 '>
+            <p className="font-semibold text-md mx-2">AI Suggestions</p>
+            <div className=' '>
               {/* generate button */}
 
               <Button
                 onClick={fetchSuggestedMessages}
                 className=' rounded-full bg-highlightLight flex items-center dark:bg-highlightDark hover:bg-accentLight dark:hover:bg-accentLight  px-4  text-sm font-semibold text-textLight   shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
-                disabled={isSuggestLoading}>
+                disabled={isSuggestLoading || showModal}>
                 <span className='mx-2'>
                   <Sparkles />
                 </span>
-                ask sameeksha
+                Ask Sameeksha
               </Button>
             </div>
 
             {isSuggestLoading?(<div className="flex flex-row gap-2 flex-wrap w-[100%]">
-                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[200px] w-[100px] py-2 rounded-xl  " />
-                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[200px] w-[100px] py-2 rounded-xl  " />
-                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[200px] w-[100px] py-2 rounded-xl  " />
-                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[200px] w-[100px] py-2 rounded-xl  " />
+                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[50px] w-[100px]  py-2 rounded-xl  " />
+                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[50px] w-[100px] md:h-[75px]   py-2 rounded-xl  " />
+                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[50px] w-[100px] md:h-[75px]  py-2 rounded-xl  " />
+                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800 ml-4 h-[50px] w-[100px] md:h-[75px]   py-2 rounded-xl  " />
               </div>):(<div className=''>
               <Card className='rounded-xl h-[30%] py-2  dark:bg-mainDark'>
                 <CardContent className='flex flex-row -ml-5  flex-wrap'>
@@ -197,13 +209,18 @@ const SendMessage = () => {
                     <p className='text-red-500'>{error.message}</p>
                   ) : (
                     parseMessages(completion).map((message, index) => (
+                     showModal ?(<CardContent
+                      key={index}
                      
-                        <CardContent
-                         key={index}
-                          onClick={() => handleMessageClick(message)}
-                        className='rounded-xl text-left   max-w-[200px] px-3 py-3 bg-buttonLight m-2 dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark    text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
-                        {message}
-                        </CardContent>
+                     className='rounded-xl  text-left   max-w-[200px] px-3 py-3 bg-buttonLight m-2 dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark    text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                     You've reached the limit to keep it affordable. Message khud likho ab!
+                     </CardContent>):( <CardContent
+                      key={index}
+                       onClick={() => handleMessageClick(message)}
+                     className='rounded-xl cursor-pointer text-left   max-w-[200px] px-3 py-3 bg-buttonLight m-2 dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark    text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                     {message}
+                     </CardContent>)
+                       
                       
                 
                     ))

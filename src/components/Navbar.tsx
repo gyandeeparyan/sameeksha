@@ -2,9 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-
-import { useSession, signOut } from "next-auth/react";
 import { Button } from "./ui/button";
+import { useSession, signOut } from "next-auth/react";
+
 import { User } from "next-auth";
 import { Menu, X ,Home,BadgeInfo,MessageCircle,MessageCircleQuestion,Pen} from "lucide-react";
 import { ModeToggle } from "./ModeToggle";
@@ -28,11 +28,7 @@ function Navbar() {
       icon:<MessageCircle/>,
       href: "/dashboard",
     },
-    {
-      name: "Request features",
-      icon:<MessageCircleQuestion/>,
-      href: "/request-feature",
-    },
+  
   ];
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -60,8 +56,8 @@ function Navbar() {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className='text-sm md:text-md  flex flex-row items-end gap-2 hover:text-gray-900 dark:hover:text-gray-200'>
-                  {item.icon}  
+                  className='text-sm md:text-md  flex flex-row items-end gap-2 hover:font-semibold hover:text-gray-900 dark:hover:text-gray-200'>
+                
                   {item.name}
                 </a>
               </li>
@@ -104,13 +100,13 @@ function Navbar() {
                     <span>
                       <Pen/>
                     </span>
-                    <span className='font-semibold  text-3xl font-junge '>Sameeksha</span>
+                    <span className='  text-3xl dark:text-accentDark   '>Sameeksha</span>
                   </div>
                   <div className='-mr-2'>
                     <button
                       type='button'
                       onClick={toggleMenu}
-                      className='inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                      className='inline-flex items-center justify-center rounded-md p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
                       <span className='sr-only'>Close menu</span>
                       <X className='h-6 w-6' aria-hidden='true' />
                     </button>
@@ -122,8 +118,8 @@ function Navbar() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className='-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50'>
-                        <span className='ml-3 flex flex-row items-center gap-2 text-base font-medium'>
+                        className='-m-3 flex items-end rounded-md p-3 text-sm  hover:bg-gray-50'>
+                        <span className='ml-3 flex flex-row items-end gap-5 text-base font-medium'>
                         {item.icon} 
                           {item.name}
                         </span>
