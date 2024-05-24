@@ -15,7 +15,9 @@ export default  function RootLayout({
       <body>
         <Navbar />
         {children}
-        <Footer/>
+        <footer className='text-center p-4 md:p-3 bg-white dark:bg-mainDark dark:text-white'>
+    Made in Bharat
+  </footer>
       </body>
     </html>
   );
