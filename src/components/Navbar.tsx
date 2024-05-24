@@ -64,7 +64,7 @@ function Navbar() {
             ))}
           </ul>
         </div>
-        <div className='hidden  lg:flex gap-2 '>
+        <div className='hidden  lg:flex gap-3 '>
           {session ? (
             <Button
               variant='secondary'

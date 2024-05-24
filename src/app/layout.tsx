@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Sameeksha",
-  description: "Anonymous messaging platform buil with Next.js 14",
+  description: "Anonymous messaging platform built with Next.js 14",
 };
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -33,24 +33,26 @@ const junge = Dancing_Script({
 })
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" className={` ${roboto_mono.variable} ${junge.variable}`}>
+    <html lang="en" className={` ${roboto_mono.variable} ${junge.variable}`} suppressHydrationWarning>
       <head />
-      <AuthProvider>
-        <ThemeProvider
+      
+        
+           <AuthProvider>
+          <body className={inter.className}>
+          <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
+       
         >
-           
-          <body className={inter.className}>
-
             {children}
-            
+            </ThemeProvider>
             <Toaster />
           </body>
-        </ThemeProvider>
-      </AuthProvider>
+          </AuthProvider>
+        
+     
     </html>
   );
 }
