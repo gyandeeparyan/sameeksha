@@ -8,6 +8,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Message } from "@/model/User";
 import { ApiResponse } from "@/types/ApiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Cryptr from 'cryptr';
 import axios, { AxiosError } from "axios";
 import { Loader2, RefreshCcw } from "lucide-react";
 import { User } from "next-auth";
@@ -141,6 +142,25 @@ function UserDashboard() {
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
   const profileUrl = `${baseUrl}/u/${username}`;
 
+  const SECRET_KEY = String(process.env.CRYPTOJS_SECRET) ;
+  const cryptr = new Cryptr(SECRET_KEY ,{ encoding: 'base64', pbkdf2Iterations: 10000, saltLength: 10 });
+  const decryptContent = (encryptedContent:string):string => {
+    try {
+      console.log(encryptedContent)
+    const decryptedContent=cryptr.decrypt(encryptedContent)
+    console.log(decryptedContent)
+      if (!decryptedContent) throw new Error("Decryption failed");
+      return decryptedContent;
+    } catch (error) {
+      console.error("Decryption error:", error);
+      return "Decryption failed";
+    }
+  };
+  
+
+
+
+
   const copyToClipboard = () => {
     function copyTextToClipboard(text:string) {
       if (!navigator.clipboard) {
@@ -223,16 +243,19 @@ if (typeof window === 'undefined'){
           </div>
          
           <h1 className='text-5xl font-semibold mb-6 text-left'>
-            namaste  {username} .
+            Namaste  {username} .
           </h1>
           <div className='mt-4  flex flex-col w-[90%] '>
             {messages.length > 0 ? (
               messages.map((message, index) => {
-             
+                console.log(message)
+                let decryptedMessage=decryptContent(message.content)
+                console.log(message.content)
+                console.log(decryptedMessage)
              return ( <MessageCard
                 
                   key={message._id}
-                  message={message}
+                  message={{content:decryptedMessage,createdAt:Date.now}}
                   onMessageDelete={handleDeleteMessage}
                 />
               )

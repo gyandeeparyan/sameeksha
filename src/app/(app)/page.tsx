@@ -48,7 +48,7 @@ export default function Home() {
           <Button
             type='button'
             variant='secondary'
-            className='rounded-xl mt-6 md:mt-10 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+            className='rounded-lg mt-6 md:mt-10 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
             Sign up
           </Button>
           </Link>
@@ -57,7 +57,7 @@ export default function Home() {
                       type='button'
                       variant='secondary'
                       onClick={() => signOut()}
-                      className='rounded-xl mt-6 md:mt-10 md:hidden mx-4 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                      className='rounded-lg mt-6 md:mt-10 md:hidden mx-4 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
                       Logout
                     </Button>
                   ) : (
@@ -65,7 +65,7 @@ export default function Home() {
                       <Button
                         type='button'
                         variant='secondary'
-                        className='rounded-xl mt-6 md:mt-10 md:hidden mx-4  bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                        className='rounded-lg mt-6 md:mt-10 md:hidden mx-4  bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
                         Login
                       </Button>
                     </Link>
