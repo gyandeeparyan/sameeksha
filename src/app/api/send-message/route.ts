@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     console.log(encryptedContent)
     console.log(typeof(encryptedContent))
 
-    const newMessage = { content:encryptedContent, createdAt: new Date() };
+    const newMessage = { content, createdAt: new Date() };
 
     user.messages.push(newMessage as unknown as Message);
     await user.save();

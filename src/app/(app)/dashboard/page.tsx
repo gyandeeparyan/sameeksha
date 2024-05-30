@@ -255,7 +255,7 @@ if (typeof window === 'undefined'){
              return ( <MessageCard
                 
                   key={message._id}
-                  message={{content:decryptedMessage,createdAt:Date.now}}
+                  message={message}
                   onMessageDelete={handleDeleteMessage}
                 />
               )

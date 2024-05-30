@@ -106,14 +106,15 @@ export default function SignUpForm() {
 }
   return (
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
-     <div className="flex flex-row items-center justify-around  ">
-        <div className="bg-indigo-100 dark:bg-accentDark ml-48 mb-10 rounded-3xl mt-20 hidden md:block">
+      <div className="md:px-14 md:py-7">
+     <div className="flex md:dark:border-[0.5px] border-neutral-600 rounded-3xl flex-row items-center md:p-10 justify-around bg-white dark:bg-mainDark w-full ">
+        <div className="bg-purple-100 dark:bg-accentDark max-w-[400px]   rounded-xl  hidden md:block">
 <Image src={"https://illustrations.popsy.co/amber/working-vacation.svg"} alt="signup illustration" width={600} height={900}></Image>
         </div>
 
-     <div className='flex justify-center w-full  min-h-screen md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
-      <div className='w-full mt-8 max-w-md p-8 space-y-8 bg-orange-100 dark:bg-mainDark rounded-2xl shadow-md  dark:text-textDark'>
-        <div className='text-center'>
+     <div className='flex justify-end w-[100%] md:w-[50%]  min-h-screen md:min-h-[80%] bg-white   rounded-3xl dark:bg-mainDark'>
+      <div className='w-full mt-8 md:mt-0 max-w-md md:p-4 p-4 space-y-8 bg-orange-100 md:bg-transparent md:dark:border-0 dark:border-[0.5px] border-neutral-600 dark:bg-mainDark rounded-3xl   dark:text-textDark'>
+        <div className='text-center md:text-right'>
           <h1 className='text-4xl font-semibold tracking-tight lg:text-5xl mb-6'>
             Join sameeksha
           </h1>
@@ -133,7 +134,7 @@ export default function SignUpForm() {
                       field.onChange(e);
                       debounced(e.target.value);
                     }}
-                    placeholder='Username' className=" bg-transparent dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark"
+                    placeholder='Username' className=" bg-transparent dark:bg-mainDark  rounded-lg    border-textDark"
                   />
                   {isCheckingUsername && <Loader2 className='animate-spin' />}
                   {!isCheckingUsername && usernameMessage && (
@@ -156,7 +157,7 @@ export default function SignUpForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="hidden">Email</FormLabel>
-                  <Input {...field} name='email' placeholder='Email' className=" bg-transparent dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark" />
+                  <Input {...field} name='email' placeholder='Email' className=" bg-transparent dark:bg-mainDark rounded-lg  border-textDark" />
                   <p className='text-muted  text-sm'>
                     we will send you a verification code
                   </p>
@@ -172,13 +173,13 @@ export default function SignUpForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="hidden">Password</FormLabel>
-                  <Input type='password' {...field} name='password'placeholder='Password' className=" bg-transparent dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark" />
+                  <Input type='password' {...field} name='password'placeholder='Password' className=" bg-transparent dark:bg-mainDark rounded-lg    border-textDark" />
                   <FormMessage />
                 </FormItem>
               )}
               
             />
-            <Button type='submit' className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black' disabled={isSubmitting}>
+            <Button type='submit' className='w-full md:w-[40%] md:ml-[250px] rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black' disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className='mr-2 h-4 w-4 animate-spin' />
@@ -190,7 +191,7 @@ export default function SignUpForm() {
             </Button>
           </form>
         </Form>
-        <div className='text-center mt-4'>
+        <div className='text-center md:hidden md:text-right mt-4'>
           <p>
             Already a member?{" "}
             <Link href='/sign-in' className='text-blue-600 hover:text-blue-800'>
@@ -200,6 +201,7 @@ export default function SignUpForm() {
         </div>
       </div>
     </div>
+      </div>
       </div>
       </div>
    

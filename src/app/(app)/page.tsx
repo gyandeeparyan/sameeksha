@@ -41,7 +41,7 @@ export default function Home() {
             dive into the world of anonymous conversations
           </h1>
           <p className='mt-3 md:mt-5 text-base md:text-lg md:w-[250px]'>
-            sameeksha - apne vichaar rakhein bina kisi sankoch ke!
+           apne vichaar rakhein bina kisi sankoch ke!
           </p>
           <div className='flex gap-2'>
           <Link href="/sign-up">

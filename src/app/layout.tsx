@@ -25,20 +25,18 @@ const roboto_mono = Roboto_Mono({
   display: 'swap',
   variable: '--font-roboto-mono',
 })
-const junge = Dancing_Script({
-  subsets: ['latin'],
-  display: 'swap',
-  weight:'400',
-  variable: '--font-junge',
-})
+
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" className={` ${roboto_mono.variable} ${junge.variable}`} suppressHydrationWarning>
+    <html lang="en" className={` ${roboto_mono.variable} `} suppressHydrationWarning>
       <head />
       
         
-           <AuthProvider>
+          
           <body className={inter.className}>
+         
+            
+            <AuthProvider>
           <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -47,10 +45,13 @@ const RootLayout = ({ children }: RootLayoutProps) => {
        
         >
             {children}
+            
             </ThemeProvider>
+            </AuthProvider>
             <Toaster />
+           
           </body>
-          </AuthProvider>
+       
         
      
     </html>

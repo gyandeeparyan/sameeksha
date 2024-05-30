@@ -68,15 +68,16 @@ function VerifyAccount() {
   return (
 
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
-    <div className="flex flex-col md:flex-row items-center justify-around  ">
-       <div className="bg-indigo-100 dark:bg-accentDark mx-5 md:mb-10 rounded-3xl mt-6 md:mt-20  md:block">
+         <div className="md:px-14 md:py-7">
+    <div className="flex md:dark:border-[0.5px] border-neutral-600 bg-white rounded-3xl md:p-10  dark:bg-mainDark flex-row items-center justify-around">
+       <div className="bg-purple-100 max-w-[400px] dark:bg-accentDark  rounded-xl hidden md:block">
 <Image src={"https://illustrations.popsy.co/amber/telephone-call.svg"} alt="verify code illustration" width={400} height={600}></Image>
        </div>
 
     
-    <div className='flex justify-center h-[60%] md:min-h-[80%] bg-backgroundLight dark:bg-backgroundDark'>
-      <div className='w-full mt-8 max-w-md p-8 md:space-y-8 bg-green-100 dark:bg-mainDark rounded-xl shadow-md text-textLight dark:text-textDark'>
-        <div className='text-center'>
+    <div className='flex justify-end w-[100%] md:w-[50%]  min-h-screen md:min-h-[80%] bg-white   rounded-3xl dark:bg-mainDark'>
+      <div className='w-full mt-8 md:mt-0 max-w-md md:p-4 p-4  space-y-8  bg-orange-100 md:bg-transparent md:dark:border-0 dark:border-[0.5px] border-neutral-600 dark:bg-mainDark rounded-3xl   dark:text-textDark'>
+        <div className='text-center md:text-right'>
           <h1 className='text-4xl font-semibold tracking-tight lg:text-5xl mb-6'>
             Verify Your Account
           </h1>
@@ -90,15 +91,16 @@ function VerifyAccount() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="hidden">Verification Code</FormLabel>
-                  <Input {...field} placeholder='6 digit code sent on email' className=" bg-transparent dark:bg-mainDark border-t-transparent border-l-transparent border-r-transparent   border-b-textDark" />
+                  <Input {...field} placeholder='6 digit code sent on email' className=" bg-transparent dark:bg-mainDark  rounded-lg    border-textDark" />
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button type='submit' className='w-full rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>verify</Button>
+            <Button type='submit' className='w-full md:w-[40%] md:ml-[250px] rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>verify</Button>
           </form>
         </Form>
       </div>
+    </div>
     </div>
     </div>
       </div>

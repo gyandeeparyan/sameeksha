@@ -10,14 +10,14 @@ export default  function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en'>
-      <body>
-       
+   
+      
+       <div>
         {children}
         <footer className='text-center p-4 md:p-3 bg-white dark:bg-mainDark dark:text-white'>
     Made in Bharat
   </footer>
-      </body>
-    </html>
+      </div>
+    
   );
 }

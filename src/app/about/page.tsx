@@ -67,7 +67,7 @@ export default function About() {
     return null;
   }
   return (
-    <div className='md:m-12 m-4'>
+    <div className='md:px-14 md:py-7'>
       <div className='bg-purple-100 dark:bg-mainDark rounded-3xl my-4 flex flex-col md:flex-row gap-5 justify-between p-8'>
         {/* text description with accordion */}
         <div className=' flex flex-col gap-4 p-2 md:max-w-[45%]'>
