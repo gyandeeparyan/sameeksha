@@ -67,33 +67,45 @@ export default function About() {
     return null;
   }
   return (
-    <div className='md:px-14 md:py-7'>
-      <div className='bg-purple-100 dark:bg-mainDark rounded-3xl my-4 flex flex-col md:flex-row gap-5 justify-between p-8'>
+    <div className='md:px-14 md:py-7 px-4'>
+      <div className='bg-purple-100  dark:border-[0.5px] border-neutral-600 dark:bg-mainDark rounded-3xl flex flex-col md:flex-row gap-5 justify-between p-8'>
         {/* text description with accordion */}
-        <div className=' flex flex-col gap-4 p-2 md:max-w-[45%]'>
-          <p className="m-2">
+        <div className=' flex flex-col justify-center  items-center gap-4 p-2 md:max-w-[90%]'>
+          {/* <p className="m-2">
             Sameeksha is anonymous messaging and feedback app designed to foster open
             communication and constructive dialogue. Whether you are a teacher
             seeking honest feedback from students, a mentor encouraging
             anonymous questions from mentees, or simply looking for a platform
             to engage in fun and casual conversations.
-          </p>
+          </p> */}
           {/* accordion */}
-          <div className="m-2 text-left">
+          <div className="justify-center  items-center text-left ">
             <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
+            <AccordionItem value="item-1">
+                <AccordionTrigger>How to use Sameeksha ?</AccordionTrigger>
+                <AccordionContent>
+                  Step 1 - Register yourself , after verifying your email you will be redirected to dashboard.
+                  <br/>
+                  <br/>
+                  Step 2 - Copy & Share your Sameeksha handle , which looks like https://sameeksha.vercel.app/u/gyan
+                  <br/>
+                  <br/>
+                  Step 3 - Keep an eye on dashboard . All your messages will be synced automatically as soon as anyone sends anything on your handle 
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
                 <AccordionTrigger>How does anonymity work ?</AccordionTrigger>
                 <AccordionContent>
                   Sameeksha ensures user anonymity by not requiring any personal information. Messages and feedback are shared without revealing the sender&apos;s identity, promoting honest and open communication.
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-2">
+              <AccordionItem value="item-3">
                 <AccordionTrigger>Who can use Sameeksha?</AccordionTrigger>
                 <AccordionContent>
                   Sameeksha is ideal for teachers, mentors, students, mentees, and anyone looking to have open and honest conversations. It&apos;s perfect for educational environments, mentoring relationships, and casual conversations.
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-3">
+              <AccordionItem value="item-4">
                 <AccordionTrigger>How is Sameeksha different ?</AccordionTrigger>
                 <AccordionContent>
                   Sameeksha stands out because of its focus on anonymity and honest feedback. Unlike traditional messaging apps, Sameeksha prioritizes open and candid communication without the influence of identity.
@@ -108,17 +120,17 @@ export default function About() {
             <CarouselContent>
               <CarouselItem>
                 <div className="bg-indigo-100 dark:bg-accentDark mx-5 rounded-3xl">
-                  <Image src={"https://illustrations.popsy.co/amber/remote-work.svg"} alt="a man messaging" width={400} height={400}></Image>
+                  <Image src={"https://illustrations.popsy.co/amber/creative-work.svg"} alt="a man messaging" width={400} height={400}></Image>
                 </div>
               </CarouselItem>
               <CarouselItem>
                 <div className="bg-indigo-100 dark:bg-accentDark mx-5 rounded-3xl">
-                  <Image src={"https://illustrations.popsy.co/amber/remote-work.svg"} alt="a man messaging" width={400} height={400}></Image>
+                  <Image src={"https://illustrations.popsy.co/amber/engineer.svg"} alt="a man messaging" width={400} height={400}></Image>
                 </div>
               </CarouselItem>
               <CarouselItem>
                 <div className="bg-indigo-100 dark:bg-accentDark mx-5 rounded-3xl">
-                  <Image src={"https://illustrations.popsy.co/amber/remote-work.svg"} alt="a man messaging" width={400} height={400}></Image>
+                  <Image src={"https://illustrations.popsy.co/amber/student-in-the-classroom.svg"} alt="a man messaging" width={400} height={400}></Image>
                 </div>
               </CarouselItem>
             </CarouselContent>
@@ -129,18 +141,18 @@ export default function About() {
       </div>
       {/* meet the developer */}
       <div className="">
-        <div className='bg-blue-100 dark:bg-mainDark my-4 rounded-3xl flex flex-col md:flex-row gap-5 justify-around p-8'>
+        <div className='bg-blue-100 dark:border-[0.5px] border-neutral-600 dark:bg-mainDark my-4 rounded-3xl flex flex-col md:flex-row gap-5 justify-around p-8'>
       
           <div className="flex max-w-2xl flex-col items-center p-2 rounded-md md:flex-row">
           
-            <div className="h-full w-full flex rounded-xl bg-blue-200 dark:bg-purple-400 md:h-[200px] md:w-[200px]">
+            <div className="h-150 w-150 flex rounded-3xl bg-blue-200 dark:bg-purple-400 md:h-[200px] md:w-[200px]">
             
               <Image
                 width={400}
                 height={400}
                 src="https://illustrations.popsy.co/amber/remote-work.svg"
                 alt="Laptop"
-                className="h-full w-full rounded-md object-cover"
+                className="h-full w-full rounded-xl object-cover"
               />
             </div>
             <div>
@@ -157,7 +169,7 @@ export default function About() {
               <Button
                 type='button'
                 variant='secondary'
-                className='rounded-xl mt-3 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark px-7 text-sm font-semibold text-textLight dark:textDark shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                className='rounded-lg mt-3 bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark px-7 text-sm font-semibold text-textLight dark:textDark shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
                 Message Me Anonymously
               </Button>
             </Link>

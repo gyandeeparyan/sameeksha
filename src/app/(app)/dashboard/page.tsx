@@ -101,7 +101,7 @@ function UserDashboard() {
  
 
 
-  // Fetch initial state from the server
+ 
   useEffect(() => {
     if (!session || !session.user) return;
 
@@ -110,7 +110,7 @@ function UserDashboard() {
     fetchAcceptMessages();
   }, [session, setValue, toast, fetchAcceptMessages, fetchMessages]);
 
-  // Handle switch change
+
   const handleSwitchChange = async () => {
     try {
       const response = await axios.post<ApiResponse>("/api/accept-messages", {
@@ -203,11 +203,10 @@ if (typeof window === 'undefined'){
   return (
 
 
-    <div className='container flex  flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
+    <div className=' flex md:px-14 md:py-7 px-4 flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
       {/* message section */}
-      <div className='flex  justify-center items-center md:w-[50%] flex-col'>
         {/* messages list container */}
-        <div className='bg-indigo-100  overflow-y-scroll h-[50%] text-wrap text-textLight dark:text-textDark dark:bg-mainDark w-full md:w-full p-6  rounded-3xl '>
+        <div className='bg-indigo-100 px-4 overflow-y-scroll h-[50%] text-wrap text-textLight dark:text-textDark dark:bg-mainDark w-full md:w-full md:p-6  rounded-3xl '>
           <div className="flex flex-row items-center ">
           <Button
             className='mt-4 px-2  bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark text-textLight dark:text-textDark  rounded-full'

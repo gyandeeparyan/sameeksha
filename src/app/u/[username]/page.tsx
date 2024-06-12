@@ -92,7 +92,7 @@ const SendMessage = () => {
   };
 
   const fetchSuggestedMessages = async () => {
-    if (fetchCount >= 3) {
+    if (fetchCount >= 2) {
       setShowModal(true);
       toast({
         title: "Whoa, Slow Down!",
@@ -124,11 +124,11 @@ const SendMessage = () => {
 
   return (
     <div className="  mt-4 md:m-10">
-      <div className='container flex flex-col md:flex md:flex-row gap-2 justify-around  rounded-xl   dark:bg-backgroundDark  w-full'>
+      <div className='md:px-14 md:py-7  px-4 flex flex-col md:flex md:flex-row gap-2 justify-around  rounded-xl   dark:bg-backgroundDark  w-full'>
         {/* message section */}
         <div className='flex  flex-col'>
           {/* message box */}
-          <div className='bg-orange-100 text-wrap dark:bg-mainDark w-full md:w-[75%] p-4  rounded-3xl '>
+          <div className='bg-orange-100 dark:border-[0.5px] border-neutral-600  text-wrap dark:bg-mainDark w-full md:w-[75%] p-4  rounded-3xl '>
             <h1 className='text-4xl  font-bold mb-6 text-left'>
               Namaste from {username}.
               <p className='mt-3 md:mt-5 font-thin text-base md:text-lg md:w-[250px]'>
@@ -181,8 +181,8 @@ const SendMessage = () => {
           {/*message suggestions box*/}
           {/*--------------------------------------------------------------------------------------------------------------------  */}
 
-          <div className='bg-indigo-100 h-[25%]  my-6 dark:bg-mainDark flex flex-col w-full md:w-[75%]  p-4 rounded-3xl'>
-            <div className='space-y-4 overflow-y-scroll text-left'>
+          <div className='bg-indigo-100 h-[25%] dark:border-[0.5px] border-neutral-600 my-6 dark:bg-mainDark flex flex-col w-full md:w-[75%]  p-4 rounded-3xl'>
+            <div className='space-y-4  overflow-y-scroll text-left'>
               {/* sugeestions button */}
               <p className='font-semibold text-md mx-2'>AI Suggestions</p>
               <div className=' '>
@@ -238,7 +238,7 @@ const SendMessage = () => {
             </div>
           </div>
 
-          <div className='flex md:hidden items-center bg-green-100 rounded-3xl mt-5 p-6 dark:bg-mainDark w-[100%]'>
+          <div className='flex md:hidden dark:border-[0.5px] border-neutral-600 items-center bg-green-100 rounded-3xl mt-0 p-6 dark:bg-mainDark w-[100%]'>
             <p className='mx-4 text-2xl'>Get your Sameeksha handle</p>
             <Link href='https://sameeksha.vercel.app' passHref  target="_blank" rel="noopener noreferrer">
               <Button
@@ -252,7 +252,7 @@ const SendMessage = () => {
         </div>
 
         {/* illustration section */}
-        <div className='flex flex-col'>
+        <div className='flex dark:border-[0.5px] border-neutral-600 flex-col'>
           {/* illustration */}
           <div className='bg-indigo-100 dark:bg-accentDark -ml-64 rounded-3xl  hidden md:block'>
             <Image

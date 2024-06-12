@@ -68,7 +68,7 @@ function VerifyAccount() {
   return (
 
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
-         <div className="md:px-14 md:py-7">
+         <div className="md:px-14 md:py-7 px-4">
     <div className="flex md:dark:border-[0.5px] border-neutral-600 bg-white rounded-3xl md:p-10  dark:bg-mainDark flex-row items-center justify-around">
        <div className="bg-purple-100 max-w-[400px] dark:bg-accentDark  rounded-xl hidden md:block">
 <Image src={"https://illustrations.popsy.co/amber/telephone-call.svg"} alt="verify code illustration" width={400} height={600}></Image>

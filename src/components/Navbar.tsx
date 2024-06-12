@@ -50,12 +50,15 @@ function Navbar() {
   return (
     <div className="relative w-full bg-mainDark dark:bg-mainDark text-textLight dark:text-textDark">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+      <Link href="/">
         <div className="inline-flex items-center space-x-2">
           <span>
             
           </span>
+         
           <span className="text-3xl font-bold dark:text-accentDark">समीक्षा</span>
         </div>
+        </ Link>
         <div className="hidden grow items-start lg:flex">
           <ul className="ml-12 inline-flex space-x-8">
             {menuItems.map((item) => (
@@ -105,14 +108,13 @@ function Navbar() {
             <div className="divide-y-2 divide-gray-50 rounded-xl border dark:border-textDark dark:bg-mainDark bg-mainLight text-textDark shadow-lg ring-1 ring-black ring-opacity-5">
               <div className="px-5 pb-6 pt-5">
                 <div className="flex items-center justify-between">
+                <Link href="/">
                   <div className="inline-flex items-center space-x-2">
-                    <span>
-                      
-                    </span>
-                    <span className="text-3xl dark:text-accentDark">
-                    समीक्षा
-                    </span>
+                    
+                   
+          <span className="text-3xl font-bold dark:text-accentDark">समीक्षा</span>
                   </div>
+                  </ Link>
                   <div className="-mr-2">
                     <button
                       type="button"
@@ -130,7 +132,7 @@ function Navbar() {
                       <a
                         key={item.name}
                         href={item.href}
-                        className="-m-3 flex items-end rounded-md p-3 text-sm hover:bg-gray-50"
+                        className="-m-3 flex items-end rounded-md p-3 text-sm"
                       >
                         <span className="ml-3 flex flex-row items-end gap-5 text-base font-medium">
                    
