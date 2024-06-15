@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -52,9 +52,9 @@ function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
       <Link href="/">
         <div className="inline-flex items-center space-x-2">
-          <span>
-            
-          </span>
+          {/* <span>
+          <Image className="scale-150" src={"https://res.cloudinary.com/dzbmc0pit/image/upload/v1718204759/Sameeksha/kdpzsxpcl4exi89i0rch.svg"} alt="signup illustration" width={100} height={100}></Image>
+          </span> */}
          
           <span className="text-3xl font-bold dark:text-accentDark">समीक्षा</span>
         </div>

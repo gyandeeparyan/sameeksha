@@ -190,7 +190,7 @@ const SendMessage = () => {
 
                 <Button
                   onClick={fetchSuggestedMessages}
-                  className='rounded-full bg-highlightLight flex items-center dark:bg-highlightDark hover:bg-accentLight dark:hover:bg-accentLight px-4 text-sm font-semibold text-textLight shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+                  className='rounded-full bg-highlightLight flex items-center dark:bg-highlightLight hover:bg-accentLight dark:hover:bg-accentLight px-4 text-sm font-semibold text-textLight shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
                   disabled={isSuggestLoading || showModal}>
                   <span className='mx-2'>
                     <Sparkles />
@@ -225,7 +225,7 @@ const SendMessage = () => {
                             <CardContent
                               key={index}
                               onClick={() => handleMessageClick(message)}
-                              className='rounded-xl cursor-pointer text-left max-w-[200px] px-3 py-3 bg-buttonLight m-2 dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark text-sm font-semibold text-textLight dark:textDark shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                              className='rounded-xl cursor-pointer text-left max-w-[200px] px-3 py-3 bg-buttonLight m-2 dark:bg-cardDark hover:bg-accentLight dark:hover:bg-accentDark text-sm font-semibold text-textLight dark:textDark shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
                               {message}
                             </CardContent>
                           )

@@ -51,8 +51,8 @@ if (typeof window === 'undefined'){
   return null
 }
   return (
-    <div className=" rounded-xl overflow-y-scroll h-32  mb-7">
-      <Card className="rounded-xl ">
+    <div className=" rounded-xl overflow-y-scroll  dark:bg-cardDark  h-32   mb-7">
+      <Card className=" dark:bg-cardDark border-0 ">
       <AlertDialog  >
             <AlertDialogTrigger >
               <Button className="rounded-full px-2 mt-6 ml-6" variant='outline'>
@@ -61,23 +61,23 @@ if (typeof window === 'undefined'){
             </AlertDialogTrigger >
             <AlertDialogContent className="rounded-xl">
               <AlertDialogHeader>
-                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+              <AlertDialogTitle className="text-black">Are you absolutely sure?</AlertDialogTitle>
                 <AlertDialogDescription>
                   This action cannot be undone. This will permanently delete
                   selected message from our servers.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
-                <AlertDialogCancel className="rounded-xl">Cancel</AlertDialogCancel>
-                <AlertDialogAction className="rounded-xl" onClick={handleDeleteConfirm}>
+                <AlertDialogCancel className="rounded-full md:rounded-xl">Cancel</AlertDialogCancel>
+                <AlertDialogAction className="rounded-full md:rounded-xl" onClick={handleDeleteConfirm}>
                   Continue
                 </AlertDialogAction>
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
       
-        <CardContent  >
-          <p className="mt-2 ml-2 text-wrap w-[90%]">{message.content}</p>
+        <CardContent   >
+          <p className="mt-2 ml-2 text-wrap text-black w-[90%]">{message.content}</p>
         </CardContent>
        
       </Card>

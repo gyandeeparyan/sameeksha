@@ -101,7 +101,7 @@ function UserDashboard() {
  
 
 
- 
+  // Fetch initial state from the server
   useEffect(() => {
     if (!session || !session.user) return;
 
@@ -110,7 +110,7 @@ function UserDashboard() {
     fetchAcceptMessages();
   }, [session, setValue, toast, fetchAcceptMessages, fetchMessages]);
 
-
+  // Handle switch change
   const handleSwitchChange = async () => {
     try {
       const response = await axios.post<ApiResponse>("/api/accept-messages", {
@@ -203,10 +203,11 @@ if (typeof window === 'undefined'){
   return (
 
 
-    <div className=' flex md:px-14 md:py-7 px-4 flex-col md:flex md:flex-row  justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen  w-full'>
+    <div className=' flex  flex-col md:flex md:flex-row  mt-5 md:mt-0 justify-around    bg-backgroundLight dark:bg-backgroundDark h-screen px-4 w-full'>
       {/* message section */}
+      <div className='flex  md:justify-center items-center md:w-[50%] flex-col '>
         {/* messages list container */}
-        <div className='bg-indigo-100 px-4 overflow-y-scroll h-[50%] text-wrap text-textLight dark:text-textDark dark:bg-mainDark w-full md:w-full md:p-6  rounded-3xl '>
+        <div className='bg-indigo-100  dark:border-[0.5px] border-neutral-600 overflow-y-scroll grow-0 h-[40%] md:h-[50%] text-wrap text-textLight dark:text-textDark dark:bg-mainDark w-full md:w-full p-6  rounded-3xl '>
           <div className="flex flex-row items-center ">
           <Button
             className='mt-4 px-2  bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark text-textLight dark:text-textDark  rounded-full'
@@ -261,11 +262,8 @@ if (typeof window === 'undefined'){
              })): (
               
                 isSwitchLoading?(  <div className="flex flex-col w-[100%] space-y-3">
-                <Skeleton className=" bg-stone-300 dark:bg-zinc-800  rounded-xl overflow-y-scroll h-32" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-[250px]  rounded-xl" />
-                  <Skeleton className="h-4 w-[200px] rounded-xl" />
-                </div>
+                <Skeleton className=" bg-zinc-300 dark:bg-zinc-800  rounded-xl overflow-y-scroll h-32" />
+                
               </div>):( <p>No messages to display.</p>)
               
              
@@ -275,7 +273,7 @@ if (typeof window === 'undefined'){
         {/*copy section/}
         {/*--------------------------------------------------------------------------------------------------------------------  */}
 
-        <div className='bg-orange-100  my-6 dark:bg-mainDark flex flex-col w-full md:w-[100%]  p-5 rounded-3xl'>
+        <div className='bg-orange-100 dark:border-[0.5px] border-neutral-600 my-6 dark:bg-mainDark flex flex-col w-full md:w-[100%]  p-5 rounded-3xl'>
           <div className='space-y-4  text-left'>
             {/* copy section */}
             <h2 className='text-lg font-semibold mb-2'>
@@ -292,7 +290,7 @@ if (typeof window === 'undefined'){
               <Button
                 className='rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
                 onClick={copyToClipboard}>
-                copy
+                Copy
               </Button>
             </div>
            
@@ -300,7 +298,7 @@ if (typeof window === 'undefined'){
         </div>
 
         {/* mobile version of settings /prefrences */}
-        <div className='flex md:hidden items-center bg-cyan-100 rounded-3xl p-6 dark:bg-mainDark    '>
+        <div className='flex md:hidden items-center dark:border-[0.5px] border-neutral-600 bg-cyan-100 rounded-3xl p-6 dark:bg-mainDark    '>
         <Switch
               {...register("acceptMessages")}
               checked={acceptMessages}
@@ -317,17 +315,17 @@ if (typeof window === 'undefined'){
       
       </div>
         {/* illustration section */}
-        <div className='flex ml-32 flex-col'>
+        <div className='flex md:justify-center md:-mt-8 md:-ml-40 flex-col'>
           {/* illustration */}
-          <div className='bg-indigo-100 dark:bg-accentDark  -ml-64 rounded-3xl my-6 hidden md:block'>
+          <div className='bg-indigo-100 dark:bg-accentDark   rounded-3xl mb-6 hidden md:block'>
             <Image
               src={"https://illustrations.popsy.co/amber/home-office.svg"}
               alt='send message illustration'
-              width={400}
-              height={600}></Image>
+              width={350}
+              height={300}></Image>
           </div>
           {/* setting / prefrence section */}
-          <div className='md:flex bg-cyan-100 items-center hidden bg-mainLight rounded-3xl p-6 dark:bg-mainDark w-[280%] -ml-64  '>
+          <div className='md:flex bg-cyan-100 dark:border-[0.5px] border-neutral-600  items-center hidden bg-mainLight rounded-3xl p-6 dark:bg-mainDark    '>
             <Switch
               {...register("acceptMessages")}
               checked={acceptMessages}

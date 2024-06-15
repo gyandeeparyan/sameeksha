@@ -33,7 +33,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        junge:['var(--font-junge)'],
+        junge: ["var(--font-junge)"],
       },
       colors: {
         mainDark: "hsl(var(--main-color-dark))",
@@ -42,7 +42,7 @@ const config = {
         textDark: "hsl(var(--text-color-dark))",
         backgroundDark: "hsl(var(--background-color-dark))",
         buttonDark: "hsl(var(--button-color-dark))",
-
+        cardDark: "hsl(var(--card-color-dark))",
         mainLight: "hsl(var(--main-color-light))",
         accentLight: "hsl(var(--accent-color-light))",
         highlightLight: "hsl(var(--highlight-color-light))",
@@ -85,11 +85,9 @@ const config = {
         },
       },
       borderRadius: {
-       
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      
     },
   },
   plugins: [require("tailwindcss-animate")],

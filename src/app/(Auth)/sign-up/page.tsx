@@ -107,13 +107,13 @@ export default function SignUpForm() {
   return (
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
       <div className="md:px-14 md:py-7">
-     <div className="flex md:dark:border-[0.5px] border-neutral-600 rounded-3xl flex-row items-center md:p-10 justify-around bg-white dark:bg-mainDark w-full ">
+     <div className="flex md:dark:border-[0.5px] border-neutral-600 md:rounded-3xl flex-row items-center md:p-10 justify-around bg-white dark:bg-mainDark w-full ">
         <div className="bg-purple-100 dark:bg-accentDark max-w-[400px]   rounded-xl  hidden md:block">
 <Image src={"https://illustrations.popsy.co/amber/working-vacation.svg"} alt="signup illustration" width={600} height={900}></Image>
         </div>
 
      <div className='flex justify-end w-[100%] md:w-[50%]  min-h-screen md:min-h-[80%] bg-white   rounded-3xl dark:bg-mainDark'>
-      <div className='w-full mt-8 md:mt-0 max-w-md md:p-4 p-4 space-y-8 bg-orange-100 md:bg-transparent md:dark:border-0 dark:border-[0.5px] border-neutral-600 dark:bg-mainDark rounded-3xl   dark:text-textDark'>
+      <div className='w-full mt-8 md:mt-0 max-w-md md:p-4 p-4 space-y-8 bg-orange-100 md:bg-transparent md:dark:border-0 dark:border-[0.5px] border-neutral-600 dark:bg-mainDark rounded-t-3xl   dark:text-textDark'>
         <div className='text-center md:text-right'>
           <h1 className='text-4xl font-semibold tracking-tight lg:text-5xl mb-6'>
             Join sameeksha
