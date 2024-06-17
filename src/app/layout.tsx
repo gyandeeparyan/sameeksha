@@ -4,6 +4,7 @@ import { Inter, Roboto_Mono ,Dancing_Script} from 'next/font/google'
 
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import {NavbarMobile}  from "@/components/NavbarMobile";
 import { ThemeProvider } from "@/components/theme-provider"
 
 import AuthProvider from "@/context/AuthProvider";
@@ -29,10 +30,10 @@ const roboto_mono = Roboto_Mono({
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en" className={` ${roboto_mono.variable} `} suppressHydrationWarning>
-      <head />
-      
-        
-          
+     
+      <head>
+     <link rel="icon" href="/favicon.ico" sizes="any" />
+          </head>
           <body className={inter.className}>
          
             
@@ -45,7 +46,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
        
         >
             {children}
-            
+            <NavbarMobile/>
             </ThemeProvider>
             </AuthProvider>
             <Toaster />

@@ -35,7 +35,7 @@ const parseMessages = (messageString: string): string[] => {
 };
 
 const defaultMessageString =
-  "What's your favorite movie?||Do you have any pets?||What's your dream job?";
+  "Do you prefer sunrise or sunset?||What's your favorite way to spend a day off? ||What's the best piece of advice you've ever received?";
 
 const SendMessage = () => {
   const params = useParams<{ username: string }>();
@@ -130,7 +130,7 @@ const SendMessage = () => {
           {/* message box */}
           <div className='bg-orange-100 dark:border-[0.5px] border-neutral-600  text-wrap dark:bg-mainDark w-full md:w-[75%] p-4  rounded-3xl '>
             <h1 className='text-4xl  font-bold mb-6 text-left'>
-              Namaste from {username}.
+              Namaste from <span className="text-highlightLight"> {username}</span>.
               <p className='mt-3 md:mt-5 font-thin text-base md:text-lg md:w-[250px]'>
                 unleash your thoughts, send anything anonymously!
               </p>
@@ -252,9 +252,9 @@ const SendMessage = () => {
         </div>
 
         {/* illustration section */}
-        <div className='flex dark:border-[0.5px] border-neutral-600 flex-col'>
+        <div className='flex  flex-col'>
           {/* illustration */}
-          <div className='bg-indigo-100 dark:bg-accentDark -ml-64 rounded-3xl  hidden md:block'>
+          <div className='bg-indigo-100 dark:bg-accentDark -ml-64 rounded-3xl dark:border-[0.5px] border-neutral-600 hidden md:block'>
             <Image
               src={"https://illustrations.popsy.co/amber/communication.svg"}
               alt='send message illustration'
@@ -262,7 +262,7 @@ const SendMessage = () => {
               height={600}></Image>
           </div>
           {/* get your link section */}
-          <div className='md:flex items-center mt-5 hidden bg-green-100 rounded-3xl p-6 dark:bg-mainDark w-[100] -ml-64'>
+          <div className='md:flex items-center mt-5 hidden dark:border-[0.5px] border-neutral-600 bg-green-100 rounded-3xl p-6 dark:bg-mainDark w-[100] -ml-64'>
             <p className='mx-4 text-2xl'>Get your Sameeksha handle</p>
             <Link href='https://sameeksha.vercel.app' passHref  target="_blank" rel="noopener noreferrer">
               <Button

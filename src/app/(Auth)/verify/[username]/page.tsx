@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useToast } from "@/components/ui/use-toast";
 import { useParams, useRouter } from "next/navigation";
-import React from "react";
+import React ,{useState}from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { verifySchema } from "@/schemas/verifySchema";
@@ -19,11 +19,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { z } from "zod";
-
+import { Loader2 } from "lucide-react";
 function VerifyAccount() {
   const router = useRouter();
   const params = useParams<{ username: string }>();
-
+  const [isSubmitting,setIsSubmitting]=useState(false)
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof verifySchema>>({
@@ -32,6 +32,7 @@ function VerifyAccount() {
   });
 
   const onSubmit = async (data: z.infer<typeof verifySchema>) => {
+    setIsSubmitting(true);
     try {
       const response = await axios.post(`/api/verify-code`, {
         username: params.username,
@@ -44,6 +45,7 @@ function VerifyAccount() {
       });
 
       router.replace("/sign-in");
+      setIsSubmitting(false);
     } catch (error) {
       console.error("Error during sign-up:", error);
 
@@ -96,7 +98,16 @@ function VerifyAccount() {
                 </FormItem>
               )}
             />
-            <Button type='submit' className='w-full md:w-[40%] md:ml-[250px] rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>verify</Button>
+           <Button type='submit' className='w-full md:w-[40%] md:ml-[250px] rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black' disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                  Authenticating
+                </>
+              ) : (
+                "Verify"
+              )}
+            </Button>
           </form>
         </Form>
       </div>

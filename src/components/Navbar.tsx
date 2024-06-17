@@ -48,7 +48,7 @@ function Navbar() {
   }
 
   return (
-    <div className="relative w-full bg-mainDark dark:bg-mainDark text-textLight dark:text-textDark">
+    <div className="sticky top-0 z-50 w-full bg-mainDark dark:bg-mainDark text-textLight dark:text-textDark">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
       <Link href="/">
         <div className="inline-flex items-center space-x-2">
@@ -100,54 +100,11 @@ function Navbar() {
         </div>
         <div className="lg:hidden flex">
           <div className="flex items-center">
-            <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
+            
           </div>
+          <ModeToggle />
         </div>
-        {isMenuOpen && (
-          <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
-            <div className="divide-y-2 divide-gray-50 rounded-xl border dark:border-textDark dark:bg-mainDark bg-mainLight text-textDark shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="px-5 pb-6 pt-5">
-                <div className="flex items-center justify-between">
-                <Link href="/">
-                  <div className="inline-flex items-center space-x-2">
-                    
-                   
-          <span className="text-3xl font-bold dark:text-accentDark">समीक्षा</span>
-                  </div>
-                  </ Link>
-                  <div className="-mr-2">
-                    <button
-                      type="button"
-                      onClick={toggleMenu}
-                      className="inline-flex items-center justify-center rounded-md p-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                    >
-                      <span className="sr-only">Close menu</span>
-                      <X className="h-6 w-6" aria-hidden="true" />
-                    </button>
-                  </div>
-                </div>
-                <div className="mt-6">
-                  <nav className="grid gap-y-4">
-                    {menuItems.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-m-3 flex items-end rounded-md p-3 text-sm"
-                      >
-                        <span className="ml-3 flex flex-row items-end gap-5 text-base font-medium">
-                   
-                          {item.name}
-                        </span>
-                      </a>
-                    ))}
-
-                    <ModeToggle />
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        
       </div>
     </div>
   );

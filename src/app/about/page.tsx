@@ -67,7 +67,7 @@ export default function About() {
     return null;
   }
   return (
-    <div className='md:px-14 md:py-7 px-4'>
+    <div className='md:px-14 md:py-7 p-4'>
       <div className='bg-purple-100  dark:border-[0.5px] border-neutral-600 dark:bg-mainDark rounded-3xl flex flex-col md:flex-row gap-5 justify-between p-8'>
         {/* text description with accordion */}
         <div className=' flex flex-col justify-center  items-center gap-4 p-2 md:max-w-[90%]'>
@@ -145,24 +145,24 @@ export default function About() {
       
           <div className="flex max-w-2xl flex-col items-center p-2 rounded-md md:flex-row">
           
-            <div className="h-150 w-150 flex rounded-3xl bg-blue-200 dark:bg-purple-400 md:h-[200px] md:w-[200px]">
+            <div className="h-150 hidden w-150 rounded-3xl bg-blue-200 dark:bg-purple-400 md:h-[200px] md:w-[200px]">
             
               <Image
                 width={400}
                 height={400}
                 src="https://illustrations.popsy.co/amber/remote-work.svg"
                 alt="Laptop"
-                className="h-full w-full rounded-xl object-cover"
+                className="h-full w-full   rounded-xl object-cover"
               />
             </div>
             <div>
-              
+            
               <div className="my-4 md:mx-5">
-                <h1 className="inline-flex items-center md:text-5xl text-3xl font-semibold md:font-thin">
+                <h1 className="inline-flex items-center dark:text-highlightLight md:text-5xl text-3xl font-semibold ">
                   Gyandeep Aryan <ArrowUpRight className="ml-2 h-4 w-4" />
                 </h1>
                 
-                <p className="mt-3 md:text-lg text-sm">
+                <p className="mt-3 md:text-lg text-cardDark text-sm">
                   Crafting beautiful and accessible web, one component at a time
                 </p>
                 <Link href="https://sameeksha.vercel.app/u/gyan" passHref target="_blank" rel="noopener noreferrer">

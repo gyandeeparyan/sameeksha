@@ -1,9 +1,11 @@
 "use client"
 
+import {useState} from "react"
 import Image from "next/image";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+
 import { signIn } from 'next-auth/react';
 import {
   Form,
@@ -18,9 +20,9 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/components/ui/use-toast';
 import { signInSchema } from '@/schemas/signInSchema';
-
+import { Loader2 } from "lucide-react";
 export default function SignInForm() {
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const form = useForm<z.infer<typeof signInSchema>>({
@@ -33,6 +35,7 @@ export default function SignInForm() {
 
   const { toast } = useToast();
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+    setIsSubmitting(true);
     const result = await signIn('credentials', {
       redirect: false,
       identifier: data.identifier,
@@ -58,6 +61,7 @@ export default function SignInForm() {
     if (result?.url) {
       router.replace('/dashboard');
     }
+    setIsSubmitting(false);
   };
 
   if (typeof window === 'undefined'){
@@ -103,7 +107,16 @@ export default function SignInForm() {
                 </FormItem>
               )}
             />
-            <Button className='w-full md:w-[40%] md:ml-[250px] rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black' type="submit">Sign In</Button>
+             <Button type='submit' className='w-full md:w-[40%] md:ml-[250px] rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black' disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                  Sit Tight
+                </>
+              ) : (
+                "Sign In"
+              )}
+            </Button>
           </form>
         </Form>
         <div className="text-end mt-4">

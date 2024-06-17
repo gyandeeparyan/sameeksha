@@ -183,7 +183,7 @@ export default function SignUpForm() {
               {isSubmitting ? (
                 <>
                   <Loader2 className='mr-2 h-4 w-4 animate-spin' />
-                  please wait
+                  One Moment
                 </>
               ) : (
                 "Sign Up"

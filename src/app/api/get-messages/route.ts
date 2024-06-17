@@ -4,6 +4,9 @@ import { User } from "next-auth";
 import mongoose from "mongoose";
 import { authOptions } from "../auth/[...nextauth]/options";
 import { getServerSession } from "next-auth/next";
+
+// export const dynamic = "force-dynamic";
+
 export async function GET(request: Request) {
   await dbConnect();
 
