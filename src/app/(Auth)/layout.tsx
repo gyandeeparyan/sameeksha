@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 
 export const metadata = {
-  title: 'Sameeksha | Auth',
+  title: 'समीक्षा | Auth',
   description: 'Auth route',
 }
 

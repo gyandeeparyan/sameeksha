@@ -11,7 +11,7 @@ import AuthProvider from "@/context/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Sameeksha",
+  title: "समीक्षा",
   description: "Anonymous messaging platform built with Next.js 14",
 };
 interface RootLayoutProps {
