@@ -128,7 +128,7 @@ function UserDashboard() {
     const intervalId = setInterval(() => {
       fetchMessages();
       fetchAcceptMessages();
-    }, 5000); // Fetch every 10 seconds (adjust as needed)
+    }, 30000); // Fetch every 10 seconds (adjust as needed)
   
     // Cleanup the interval on component unmount
     return () => clearInterval(intervalId);
