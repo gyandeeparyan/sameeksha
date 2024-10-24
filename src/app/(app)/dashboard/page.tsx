@@ -119,11 +119,21 @@ function UserDashboard() {
   // Fetch initial state from the server
   useEffect(() => {
     if (!session || !session.user) return;
-
+  
+    // Initial fetch when component mounts
     fetchMessages();
-
     fetchAcceptMessages();
-  }, [session, setValue, toast, fetchAcceptMessages, fetchMessages]);
+  
+    // Set interval to fetch messages periodically
+    const intervalId = setInterval(() => {
+      fetchMessages();
+      fetchAcceptMessages();
+    }, 5000); // Fetch every 10 seconds (adjust as needed)
+  
+    // Cleanup the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, [session, fetchMessages, fetchAcceptMessages]);
+  
 
   // Handle switch change
   const handleSwitchChange = async () => {

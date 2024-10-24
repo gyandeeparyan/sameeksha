@@ -28,9 +28,32 @@ export default function Home() {
     setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const registerServiceWorker = async () => {
+      // Move the conditional check inside the function
+      if ("serviceWorker" in navigator) {
+        try {
+          const registration = await navigator.serviceWorker.register("/sw.js");
+          console.log("Service Worker registered with scope:", registration.scope);
+        } catch (err) {
+          console.error("Service Worker registration failed:", err);
+        }
+      }
+    };
+  
+    // Call the registration function unconditionally
+    registerServiceWorker();
+  }, []);
+
+
   if (typeof window === 'undefined'){
     return null
 }
+
+ // Empty dependency array since we only want this to run once // Dependency array remains empty to run only on mount
+
+
   return (
     <>
     
