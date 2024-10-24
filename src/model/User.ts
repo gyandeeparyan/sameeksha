@@ -2,6 +2,7 @@ import mongoose ,{Schema,Document} from "mongoose";
 
 export interface Message extends Document{
     content: string,
+    feedbackType:string,
     createdAt: Date
 }
 
@@ -9,6 +10,12 @@ const MessageSchema: Schema<Message> =new Schema({
     content:{
         type:String,
         required:true
+    },
+    feedbackType:{
+        type:String,
+        default:"feedback",
+        required:true
+       
     },
     createdAt:{
         type:Date,

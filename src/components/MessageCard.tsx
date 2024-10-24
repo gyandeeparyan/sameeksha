@@ -53,11 +53,13 @@ if (typeof window === 'undefined'){
   return (
     <div className=" rounded-xl overflow-y-scroll  dark:bg-cardDark  h-32   mb-7">
       <Card className=" dark:bg-cardDark border-0 ">
-      <AlertDialog  >
+        <div className="flex items-center">
+        <AlertDialog  >
             <AlertDialogTrigger >
-              <Button className="rounded-full px-2 mt-6 ml-6" variant='outline'>
-                <X className='w-5 h-5' />
+              <Button className="rounded-full bg-red-400 !border-none font-extrabold  px-2 mt-6 ml-6" variant='outline'>
+                <X className='w-6 h-6' />
               </Button>
+             
             </AlertDialogTrigger >
             <AlertDialogContent className="rounded-xl">
               <AlertDialogHeader>
@@ -75,8 +77,10 @@ if (typeof window === 'undefined'){
               </AlertDialogFooter>
             </AlertDialogContent>
           </AlertDialog>
-      
-        <CardContent   >
+          <p className="mt-6 ml-2 text-wrap px-3 py-1 flex-grow-0 rounded-full border-black border-[0.5px] bg-white text-black w-[60%]">{message.feedbackType}</p>
+       
+        </div>
+      <CardContent   >
           <p className="mt-2 ml-2 text-wrap text-black w-[90%]">{message.content}</p>
         </CardContent>
        

@@ -21,12 +21,14 @@ import { acceptMessageSchema } from "@/schemas/acceptMessageSchema";
 
 import MessageCard from "@/components/MessageCard";
 import Link from "next/link";
+import { Label } from "@/components/ui/label";
 
 function UserDashboard() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isSwitchLoading, setIsSwitchLoading] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [feedbackType, setFeedbackType] = useState("");
   const { toast } = useToast();
 
   useEffect(() => {
@@ -131,9 +133,11 @@ function UserDashboard() {
   }
 
   const { username } = session.user as User;
-  //TODO: MORE Research on how to get urls
+ 
   const baseUrl = `${window.location.protocol}//${window.location.host}`;
-  const profileUrl = `${baseUrl}/u/${username}`;
+  const profileUrl = `${baseUrl}/u/${username}${
+    feedbackType ? `?utm_feedback_type=${encodeURIComponent(feedbackType)}` : ""
+  }`;
 
   const SECRET_KEY = String(process.env.CRYPTOJS_SECRET);
   const cryptr = new Cryptr(SECRET_KEY, {
@@ -239,6 +243,7 @@ function UserDashboard() {
                 console.log(message);
                 let decryptedMessage = decryptContent(message.content);
                 console.log(message.content);
+                
                 console.log(decryptedMessage);
                 return (
                   <MessageCard
@@ -260,28 +265,40 @@ function UserDashboard() {
         {/*copy section/}
         {/*--------------------------------------------------------------------------------------------------------------------  */}
 
-        <div className='bg-orange-100 dark:border-[0.5px] border-neutral-600 my-6 dark:bg-mainDark flex flex-col w-full md:w-[100%]  p-5 rounded-3xl'>
-          <div className='space-y-4  text-left'>
-            {/* copy section */}
-            <h2 className='text-lg font-semibold mb-2'>
-              Copy Your Unique Link
-            </h2>{" "}
+<div className='bg-orange-100 dark:border-[0.5px] border-neutral-600 my-6 dark:bg-mainDark flex flex-col w-full md:w-[100%] p-5 rounded-3xl'>
+        <div className='space-y-4 text-left'>
+          <h2 className='text-lg font-semibold mb-2'>
+            Copy Your Unique Link
+          </h2>
+          <div className='flex flex-col space-y-4'>
+            <div className='space-y-2'>
+              <Label htmlFor="feedbackType"></Label>
+              <input
+                id="feedbackType"
+                aria-label="Feedback Type"
+                placeholder="customise your url (bug-report, feature-request)"
+                value={feedbackType}
+                onChange={(e) => setFeedbackType(e.target.value)}
+                className="rounded-full input-bordered border w-full p-2 bg-mainLight dark:bg-mainDark border-textLight dark:border-textDark"
+              />
+            </div>
             <div className='flex items-center'>
               <input
                 title='switch'
                 type='text'
                 value={profileUrl}
                 disabled
-                className='input input-bordered border rounded-full border-textLight dark:border-textDark w-full p-2 mr-2 bg-mainLight dark:bg-mainDark'
+                className='input  input-bordered border rounded-full border-textLight dark:border-textDark w-full p-2 mr-2 bg-mainLight dark:bg-mainDark'
               />
               <Button
-                className='rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark  px-7  text-sm font-semibold text-textLight  dark:textDark shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
+                className='rounded-full bg-buttonLight dark:bg-buttonDark hover:bg-accentLight dark:hover:bg-accentDark px-7 text-sm font-semibold text-textLight dark:textDark shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'
                 onClick={copyToClipboard}>
                 Copy
               </Button>
             </div>
           </div>
         </div>
+      </div>
 
         {/* mobile version of settings /prefrences */}
         <div className='flex md:hidden items-center dark:border-[0.5px] border-neutral-600 bg-cyan-100 rounded-3xl p-6 dark:bg-mainDark    '>

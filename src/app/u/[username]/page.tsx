@@ -24,7 +24,7 @@ import { toast } from "@/components/ui/use-toast";
 import * as z from "zod";
 import { ApiResponse } from "@/types/ApiResponse";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams ,useSearchParams } from "next/navigation";
 import { messageSchema } from "@/schemas/messageSchema";
 import Image from "next/image";
 
@@ -64,13 +64,21 @@ const SendMessage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchCount, setFetchCount] = useState(0);
   const [showModal, setShowModal] = useState(false);
+ 
+  const searchParams = useSearchParams();
+
   const onSubmit = async (data: z.infer<typeof messageSchema>) => {
+    const feedbackType = searchParams.get("utm_feedback_type") || "default";
+    console.log(feedbackType)
     setIsLoading(true);
     try {
       const response = await axios.post<ApiResponse>("/api/send-message", {
         ...data,
         username,
+        feedbackType
       });
+
+      console.log(response)
 
       toast({
         title: response.data.message,
@@ -121,6 +129,9 @@ const SendMessage = () => {
   if (typeof window === "undefined") {
     return null;
   }
+
+ 
+
 
   return (
     <div className="  mt-4 md:m-10">

@@ -15,7 +15,7 @@ export async function POST(request: Request) {
   return encrypted;
   }
 
-  const { username, content } = await request.json();
+  const { username, content ,feedbackType } = await request.json();
 
   console.log(content);
 
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     console.log(encryptedContent)
     console.log(typeof(encryptedContent))
 
-    const newMessage = { content, createdAt: new Date() };
+    const newMessage = { content,feedbackType, createdAt: new Date() };
 
     user.messages.push(newMessage as unknown as Message);
     await user.save();

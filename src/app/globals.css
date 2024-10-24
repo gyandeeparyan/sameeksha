@@ -32,6 +32,11 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
@@ -73,7 +78,7 @@
     --card-color-dark: 175, 50%, 78%;
     --main-color-dark: 210, 8%, 10%;
     --accent-color-dark: 174, 42%, 51%;
-    --highlight-color-dark:3, 50%, 78%;
+    --highlight-color-dark: 3, 50%, 78%;
     --text-color-dark: 0, 0%, 80%;
     --background-color-dark: 0, 0%, 12%;
     --button-color-dark: 204, 51%, 78%;
@@ -116,3 +121,4 @@
     @apply bg-background text-foreground;
   }
 }
+
