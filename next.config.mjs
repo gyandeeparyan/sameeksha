@@ -1,21 +1,26 @@
+import withPWA from 'next-pwa';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    reactStrictMode: true,      // Enable React strict mode for improved error handling
+    swcMinify: true,            // Enable SWC minification for improved performance
+    compiler: {
+        removeConsole: process.env.NODE_ENV !== "development"     // Remove console.log in production
+    },
     images: {
-        remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: 'overreacted.io',
-            port: '',
-            pathname: '/about'
-          },
-          {
-            protocol: 'https',
-            hostname: 'images.unsplash.com',
-            port: '',
-            pathname: '/about'
-          },
-        ],
-      },
+      domains: ["res.cloudinary.com"],
+      remotePatterns: [{
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        
+      },],
+    },
 };
 
-export default nextConfig;
+export default withPWA({
+    dest: "public",         // destination directory for the PWA files
+          // disable PWA in the development environment
+    register: true,         // register the PWA service worker
+    skipWaiting: true,      // skip waiting for service worker activation
+})(nextConfig);

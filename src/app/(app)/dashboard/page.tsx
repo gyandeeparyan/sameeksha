@@ -276,7 +276,7 @@ function UserDashboard() {
               <input
                 id="feedbackType"
                 aria-label="Feedback Type"
-                placeholder="customise your url (bug-report, feature-request)"
+                placeholder="enter feedback type(bug-report, feature-request)"
                 value={feedbackType}
                 onChange={(e) => setFeedbackType(e.target.value)}
                 className="rounded-full input-bordered border w-full p-2 bg-mainLight dark:bg-mainDark border-textLight dark:border-textDark"

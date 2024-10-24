@@ -12,8 +12,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "समीक्षा",
-  description: "Anonymous messaging platform built with Next.js 14",
+  description: "समीक्षा",
+  generator: "Next.js",
+  manifest: "/manifest.json",
+  keywords: ["nextjs", "next14", "pwa", "next-pwa"],
 };
+
+
 interface RootLayoutProps {
   children: React.ReactNode;
 }
