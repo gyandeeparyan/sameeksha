@@ -74,6 +74,25 @@ function UserDashboard() {
         const response = await axios.get<ApiResponse>("/api/get-messages");
         console.log(response.data.messages);
         setMessages(response.data.messages || []);
+  
+        // Check if Notifications are supported
+        if ("Notification" in window) {
+          // Request permission to show notifications
+          if (Notification.permission === "default") {
+            await Notification.requestPermission();
+          }
+  
+          // If permission is granted, show notifications with the latest messages
+          if (Notification.permission === "granted") {
+            messages.forEach((message) => {
+              new Notification(`${message.feedbackType}`, {
+                body: message.content, // Show each message in a notification
+                tag: message.feedbackType,
+              });
+            });
+          }
+        }
+  
         if (refresh) {
           toast({
             title: "Refreshed Messages",
@@ -95,6 +114,7 @@ function UserDashboard() {
     },
     [setIsLoading, setMessages, toast]
   );
+  
 
   // Fetch initial state from the server
   useEffect(() => {
