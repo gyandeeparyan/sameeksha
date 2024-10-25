@@ -28,8 +28,8 @@ export default function SignInForm() {
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
-      identifier: '',
-      password: '',
+      identifier: 'test',
+      password: 'test007@',
     },
   });
 
@@ -72,7 +72,9 @@ export default function SignInForm() {
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
       <div className="md:px-14 md:py-7">
      <div className="flex md:dark:border-[0.5px] border-neutral-600 bg-white md:rounded-3xl md:p-10  dark:bg-mainDark flex-row items-center justify-around  ">
-        <div className="bg-purple-100 max-w-[400px] dark:bg-accentDark  rounded-xl hidden md:block">
+        <div style={{
+    backgroundImage: 'linear-gradient(30deg, #060031FF 0%, #4EB7AC 100%)',
+  }} className=" max-w-[400px]   rounded-xl hidden md:block">
 <Image src={"https://illustrations.popsy.co/amber/home-from-work.svg"} alt="signin illustration" width={400} height={600}></Image>
         </div>
     <div className="flex justify-end w-[100%] md:w-[50%]  min-h-screen md:min-h-[80%] bg-white   rounded-3xl dark:bg-mainDark">

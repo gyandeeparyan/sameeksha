@@ -108,7 +108,9 @@ export default function SignUpForm() {
     <div className="bg-backgroundLight dark:bg-backgroundDark min-h-screen">
       <div className="md:px-14 md:py-7">
      <div className="flex md:dark:border-[0.5px] border-neutral-600 md:rounded-3xl flex-row items-center md:p-10 justify-around bg-white dark:bg-mainDark w-full ">
-        <div className="bg-purple-100 dark:bg-accentDark max-w-[400px]   rounded-xl  hidden md:block">
+        <div style={{
+    backgroundImage: 'linear-gradient(30deg, #060031FF 0%, #4EB7AC 100%)',
+  }} className=" max-w-[400px]   rounded-xl  hidden md:block">
 <Image src={"https://illustrations.popsy.co/amber/working-vacation.svg"} alt="signup illustration" width={600} height={900}></Image>
         </div>
 

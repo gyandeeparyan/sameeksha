@@ -97,7 +97,10 @@ export default function Home() {
           
         </section>
 
-        <div className="bg-indigo-100 dark:bg-accentDark mx-5 mb-10 rounded-3xl">
+        <div style={{
+    backgroundImage: 'linear-gradient(30deg, #060031FF 0%, #4EB7AC 100%)',
+  }}
+ className=" mx-5 mb-10 rounded-3xl">
 <Image src={"https://illustrations.popsy.co/amber/remote-work.svg"} alt="a man messaging" width={500} height={700}></Image>
         </div>
 
