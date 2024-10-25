@@ -128,7 +128,7 @@ function UserDashboard() {
     const intervalId = setInterval(() => {
       fetchMessages();
       fetchAcceptMessages();
-    }, 30000); // Fetch every 10 seconds (adjust as needed)
+    }, 300000); 
   
     // Cleanup the interval on component unmount
     return () => clearInterval(intervalId);
@@ -346,7 +346,9 @@ function UserDashboard() {
       {/* illustration section */}
       <div className='flex md:justify-center md:-mt-8 md:-ml-40 flex-col'>
         {/* illustration */}
-        <div className='bg-indigo-100 dark:bg-accentDark   rounded-3xl mb-6 hidden md:block'>
+        <div style={{
+    backgroundImage: 'linear-gradient(30deg, #060031FF 0%, #4EB7AC 100%)',
+  }} className='  rounded-3xl mb-6 hidden md:block'>
           <Image
             src={"https://illustrations.popsy.co/amber/home-office.svg"}
             alt='send message illustration'

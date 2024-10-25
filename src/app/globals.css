@@ -11,25 +11,26 @@
     src: url(https://fonts.googleapis.com/css2?family=Junge&display=swap)
       format("ttf");
   }
-  /* width */
   ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    display: none; /* Hides scrollbar */
   }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
+  
+  .scrollable-element {
+    overflow-y: scroll; /* Enables scroll behavior */
+    scrollbar-width: none; /* For Firefox */
+  }
+  
+  /* Optional: Maintain other styles but keep scrollbar hidden */
+  .scrollable-element::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+  
+  .scrollable-element::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 5px;
   }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+  
+  .scrollable-element::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
   * {

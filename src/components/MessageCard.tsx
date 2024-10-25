@@ -51,8 +51,10 @@ if (typeof window === 'undefined'){
   return null
 }
   return (
-    <div className=" rounded-xl overflow-y-scroll  dark:bg-cardDark  h-32   mb-7">
-      <Card className=" dark:bg-cardDark border-0 ">
+    <div className=" rounded-xl overflow-y-scroll transform transition duration-300 hover:scale-105  h-32   mb-7">
+      <Card style={{
+    backgroundImage: 'linear-gradient(30deg, #060031FF 0%, #4EB7AC 100%)',
+  }} className="  border-0  ">
         <div className="flex items-center">
         <AlertDialog  >
             <AlertDialogTrigger >
@@ -81,7 +83,7 @@ if (typeof window === 'undefined'){
        
         </div>
       <CardContent   >
-          <p className="mt-2 ml-2 text-wrap text-black w-[90%]">{message.content}</p>
+          <p className="mt-2 ml-2 text-wrap text-white w-[90%]">{message.content}</p>
         </CardContent>
        
       </Card>

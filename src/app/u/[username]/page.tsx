@@ -236,7 +236,10 @@ const SendMessage = () => {
                             <CardContent
                               key={index}
                               onClick={() => handleMessageClick(message)}
-                              className='rounded-xl cursor-pointer text-left max-w-[200px] px-3 py-3 bg-buttonLight m-2 dark:bg-cardDark hover:bg-accentLight dark:hover:bg-accentDark text-sm font-semibold text-textLight dark:textDark shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
+                              style={{
+                                backgroundImage: 'linear-gradient(25deg, #060031FF 10%, #4EB7AC 100%)',
+                              }}
+                              className='rounded-xl cursor-pointer text-left max-w-[200px] px-3 py-3 text-white m-2 transform transition duration-300 hover:scale-105 hover:bg-accentLight dark:hover:bg-accentDark text-sm font-semibold  shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black'>
                               {message}
                             </CardContent>
                           )
@@ -265,7 +268,9 @@ const SendMessage = () => {
         {/* illustration section */}
         <div className='flex  flex-col'>
           {/* illustration */}
-          <div className='bg-indigo-100 dark:bg-accentDark -ml-64 rounded-3xl dark:border-[0.5px] border-neutral-600 hidden md:block'>
+          <div  style={{
+    backgroundImage: 'linear-gradient(30deg, #060031FF 0%, #4EB7AC 100%)',
+  }} className=' -ml-64 rounded-3xl dark:border-[0.5px] border-neutral-600 hidden md:block'>
             <Image
               src={"https://illustrations.popsy.co/amber/communication.svg"}
               alt='send message illustration'
