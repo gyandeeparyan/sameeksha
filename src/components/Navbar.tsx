@@ -49,7 +49,7 @@ function Navbar() {
 
   return (
     <div className="sticky top-0 z-50 w-full bg-mainDark dark:bg-mainDark text-textLight dark:text-textDark">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-10">
       <Link href="/">
         <div className="inline-flex items-center space-x-2">
           {/* <span>

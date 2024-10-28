@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# | Sameeksha    
 
-First, run the development server:
+Anonymous messaging and feedback app designed to foster open communication and constructive dialogue. Whether you're a teacher seeking honest feedback from students, a mentor encouraging anonymous questions from mentees, or simply looking for a platform to engage in fun and casual conversations .
+
+## Screenshots
+![Landing Page](https://res.cloudinary.com/dzbmc0pit/image/upload/f_auto,q_auto/kpgvjez94fb8eiiakuyo)
+
+![Signup  Page](https://res.cloudinary.com/dzbmc0pit/image/upload/f_auto,q_auto/vetucjlghnqoaoepv1ky)
+![Signin  Page](https://res.cloudinary.com/dzbmc0pit/image/upload/f_auto,q_auto/ncpl2jcsxeo73cqynydo)
+![Dashboard Page](https://res.cloudinary.com/dzbmc0pit/image/upload/f_auto,q_auto/cdks4py3ow7er30frwbo)
+![User Page](https://res.cloudinary.com/dzbmc0pit/image/upload/f_auto,q_auto/izw4m86maxmeljyp646q)
+## Features
+
+- AI Suggestions: Provides intelligent suggestions to enhance user interactions and decisions.
+- Authentication: Secure login and registration flows for user accounts.
+- Zod Validation: Robust input validation using Zod for reliable and type-safe forms.
+- Dark Mode: Toggle between light and dark themes for a comfortable user experience.
+- OTP Validation: One-Time Password (OTP) verification for an added layer of security.
+- Copy to Clipboard: Easily copy content with a single click.
+- Anonymous Messaging: Engage in conversations while preserving user anonymity.
+- Custom URL: Customise your own url for your profile and give a tag to it.
+
+
+## Tech Stack
+
+. Next.js . MongoDB . TypeScript . Zod . Resend Email . React Hook form . Shadcn . Tailwind Css
+
+
+## Run Locally
+
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/gyandeeparyan/sameeksha
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd sameeksha
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Install dependencies
 
-## Learn More
+```bash
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Start the server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Demo
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- https://sameeksha.vercel.app/
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Feedback
+
+- [Send anonymous feedback](https://sameeksha.vercel.app/u/gyan?utm_feedback_type=git-sameeksha)
+
