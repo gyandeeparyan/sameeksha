@@ -19,11 +19,20 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { AtSign, Github, Linkedin, Phone, Server, Twitter, ArrowUpRight, MessageCircle } from "lucide-react";
+import { AtSign, Github, Linkedin, Phone, Server, Twitter, ArrowUpRight, MessageCircle, Instagram } from "lucide-react";
 
 export default function About() {
 
   const contactData = [
+    {
+      id:234234,
+      icon: <Instagram className="inline"/>,
+      title: "instagram",
+      link: "https://www.instagram.com/gyandeeparyan/",
+      desc: "gyandeeparyan"
+
+    }
+    ,
     {
       id: 1,
       icon: <AtSign className="inline"/>,
@@ -158,8 +167,9 @@ export default function About() {
             <div>
             
               <div className="my-4 md:mx-5">
+                <p>meet the developer</p>
                 <h1 className="inline-flex items-center dark:text-highlightLight md:text-5xl text-3xl font-semibold ">
-                  Gyandeep Aryan <ArrowUpRight className="ml-2 h-4 w-4" />
+                  Gyandeep Aryan 
                 </h1>
                 
                 <p className="mt-3 md:text-lg text-cardDark text-sm">
@@ -184,7 +194,7 @@ export default function About() {
             {contactData.map((item)=>(
               <div key={item.link}>
               <Link href={item.link} passHref  target="_blank" rel="noopener noreferrer" >
-              <span  className="mb-2 -ml-2  mr-4 flex items-center gap-4  px-2  rounded-full bg-transparent  py-1   ">
+              <span  className="mb-2 -ml-2   mr-4 flex items-center gap-4  px-2 py-2  rounded-full bg-zinc-800  py-1   ">
               {item.icon}
               {item.desc}
             </span>
